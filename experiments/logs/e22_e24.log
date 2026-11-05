@@ -1,0 +1,33 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7843.06it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+12:40:47 scifact {'lazy50_f0.0': (13, 37, 0.0), 'lazy100_f0.0': (12, 16, 0.0), 'lazy50_f0.1': (114, 167, 5.5), 'lazy100_f0.1': (187, 266, 10.7), 'lazy50_f0.5': (418, 493, 25.1), 'lazy100_f0.5': (807, 1024, 50.3)}
+12:42:17 nfcorpus {'lazy50_f0.0': (13, 19, 0.0), 'lazy100_f0.0': (13, 14, 0.0), 'lazy50_f0.1': (69, 144, 2.8), 'lazy100_f0.1': (100, 218, 5.4), 'lazy50_f0.5': (336, 475, 14.8), 'lazy100_f0.5': (407, 852, 26.0)}
+12:45:06 arguana {'lazy50_f0.0': (26, 60, 0.0), 'lazy100_f0.0': (23, 26, 0.0), 'lazy50_f0.1': (117, 203, 5.2), 'lazy100_f0.1': (206, 335, 10.1), 'lazy50_f0.5': (420, 533, 25.5), 'lazy100_f0.5': (801, 955, 51.2)}
+12:48:17 fiqa {'lazy50_f0.0': (16, 36, 0.0), 'lazy100_f0.0': (15, 19, 0.0), 'lazy50_f0.1': (116, 225, 5.0), 'lazy100_f0.1': (202, 343, 10.1), 'lazy50_f0.5': (421, 518, 25.6), 'lazy100_f0.5': (787, 949, 51.1)}
+12:51:10 scidocs {'lazy50_f0.0': (14, 25, 0.0), 'lazy100_f0.0': (14, 20, 0.0), 'lazy50_f0.1': (117, 206, 5.2), 'lazy100_f0.1': (201, 330, 10.2), 'lazy50_f0.5': (412, 522, 25.6), 'lazy100_f0.5': (792, 927, 51.6)}
+12:54:38 trec-covid {'lazy50_f0.0': (20, 64, 0.0), 'lazy100_f0.0': (19, 24, 0.0), 'lazy50_f0.1': (133, 993, 4.5), 'lazy100_f0.1': (205, 332, 9.9), 'lazy50_f0.5': (447, 560, 25.0), 'lazy100_f0.5': (842, 1034, 50.8)}
+13:02:35 quora {'lazy50_f0.0': (48, 119, 0.0), 'lazy100_f0.0': (46, 69, 0.0), 'lazy50_f0.1': (151, 258, 5.0), 'lazy100_f0.1': (153, 253, 10.2), 'lazy50_f0.5': (162, 275, 25.2), 'lazy100_f0.5': (200, 266, 50.5)}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:01<09:26,  1.68s/it]Loading weights:  51%|█████     | 171/338 [00:01<00:01, 122.13it/s]Loading weights:  64%|██████▍   | 217/338 [00:02<00:01, 107.87it/s]Loading weights:  73%|███████▎  | 246/338 [00:03<00:01, 86.41it/s] Loading weights:  79%|███████▊  | 266/338 [00:03<00:00, 90.01it/s]Loading weights:  84%|████████▎ | 283/338 [00:03<00:00, 75.06it/s]Loading weights:  88%|████████▊ | 296/338 [00:03<00:00, 72.08it/s]Loading weights:  91%|█████████ | 307/338 [00:04<00:00, 68.48it/s]Loading weights:  93%|█████████▎| 316/338 [00:04<00:00, 66.67it/s]Loading weights:  97%|█████████▋| 327/338 [00:04<00:00, 67.92it/s]Loading weights: 100%|██████████| 338/338 [00:04<00:00, 76.37it/s]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 5513.10it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+13:03:28 0 9.332366943359375 {'full_index': 0.108, 'sa100': 0.111, 'lazy50': 0.108, 'afh': 0.108}
+13:06:05 10 166.25514602661133 {'full_index': 0.199, 'sa100': 0.154, 'lazy50': 0.197, 'afh': 0.213}
+13:08:43 20 324.82446694374084 {'full_index': 0.192, 'sa100': 0.149, 'lazy50': 0.194, 'afh': 0.206}
+13:12:46 30 567.7961540222168 {'full_index': 0.211, 'sa100': 0.198, 'lazy50': 0.22, 'afh': 0.219}
+13:16:09 40 770.73273396492 {'full_index': 0.183, 'sa100': 0.177, 'lazy50': 0.19, 'afh': 0.193}

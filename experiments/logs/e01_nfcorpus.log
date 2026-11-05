@@ -1,0 +1,17 @@
+03:17:24 nfcorpus docs 3633 queries 323
+03:17:26 first stage done 0.08758413605391979
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6278.62it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+03:18:22 embeddings done 43.62407302856445
+03:18:24 dense done {'ms_p50': 0.3385001327842474, 'ms_p95': 0.42341644875705237, 'recall10_vs_exact': 0.9860681114551083}
+Traceback (most recent call last):
+  File "experiments/e01_base.py", line 138, in <module>
+    live = encode(m, [docs[int(x)] for x in c]) @ Q[i]
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 384 is different from 0)

@@ -1,0 +1,6 @@
+=== .venv/bin/python -I e03_rerank_sparse_hparams.py splade 15:30
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+15:37:04 scifact 59.99476960697575 0.7024 0.9460000000000001
+15:40:08 nfcorpus 49.772911284404984 0.3475 0.3477266208640497
+15:46:26 arguana 40.66105363884086 0.5381 0.986
+16:06:29 scidocs 46.60434844075051 0.1611 0.45189999999999997

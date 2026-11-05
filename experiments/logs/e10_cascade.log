@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 9022.97it/s]
+[1mBertForSequenceClassification LOAD REPORT[0m from: cross-encoder/ms-marco-MiniLM-L6-v2
+Key                          | Status     |  | 
+-----------------------------+------------+--+-
+bert.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+18:26:55 scifact 8.31573976201 {'jitcc': 0.7271, 'hybcc': 0.7176, 'rrf': 0.7249, 'dense': 0.7007} {'jitcc': 0.7371, 'hybcc': 0.7369, 'rrf': 0.7277, 'dense': 0.7214}
+18:28:45 nfcorpus 9.465805459954293 {'jitcc': 0.3523, 'hybcc': 0.3453, 'rrf': 0.3575, 'dense': 0.3358} {'jitcc': 0.3546, 'hybcc': 0.3543, 'rrf': 0.3655, 'dense': 0.3495}
+18:30:48 arguana 9.915103850006139 {'jitcc': 0.6497, 'hybcc': 0.6453, 'rrf': 0.6374, 'dense': 0.642} {'jitcc': 0.6146, 'hybcc': 0.6137, 'rrf': 0.6116, 'dense': 0.6202}
+18:33:07 fiqa 9.11496435271862 {'jitcc': 0.4912, 'hybcc': 0.5097, 'rrf': 0.464, 'dense': 0.5096} {'jitcc': 0.5006, 'hybcc': 0.5142, 'rrf': 0.4829, 'dense': 0.5319}
+18:35:25 scidocs 10.040025959366913 {'jitcc': 0.1883, 'hybcc': 0.199, 'rrf': 0.1876, 'dense': 0.19} {'jitcc': 0.1901, 'hybcc': 0.1952, 'rrf': 0.1875, 'dense': 0.1918}
+18:36:45 trec-covid 11.577627336349027 {'jitcc': 0.779, 'hybcc': 0.7658, 'rrf': 0.7679, 'dense': 0.7466} {'jitcc': 0.7878, 'hybcc': 0.8024, 'rrf': 0.796, 'dense': 0.782}
+18:37:42 quora 2.243237713927634 {'jitcc': 0.9167, 'hybcc': 0.9181, 'rrf': 0.9044, 'dense': 0.9066} {'jitcc': 0.9172, 'hybcc': 0.9201, 'rrf': 0.9061, 'dense': 0.9093}

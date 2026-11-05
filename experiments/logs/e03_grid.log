@@ -1,0 +1,5 @@
+=== .venv/bin/python -I e03_rerank_sparse_hparams.py bm25grid 15:02
+15:02:58 scifact grid done
+15:03:09 nfcorpus grid done
+15:04:08 scidocs grid done
+15:04:36 arguana grid done

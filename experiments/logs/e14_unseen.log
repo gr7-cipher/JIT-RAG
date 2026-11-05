@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7824.24it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+20:50:50 scifact train {'af': (0.7586, 0.948), 'b100': (0.7614, 0.93), 'dense': (0.7375, 0.967), 'rrf': (0.7388, 0.972), 'h50': (0.7624, 0.962), 'h100': (0.7624, 0.975), 'afh': (0.7655, 0.974)}
+20:50:51 nfcorpus dev {'af': (0.3442, 0.308), 'b100': (0.3254, 0.228), 'dense': (0.3266, 0.315), 'rrf': (0.3389, 0.32), 'h50': (0.346, 0.297), 'h100': (0.346, 0.323), 'afh': (0.3504, 0.345)}
+20:50:59 fiqa dev {'af': (0.3998, 0.58), 'b100': (0.3925, 0.543), 'dense': (0.3981, 0.692), 'rrf': (0.3721, 0.707), 'h50': (0.4196, 0.683), 'h100': (0.4196, 0.713), 'afh': (0.4013, 0.708)}
+20:51:29 quora dev {'af': (0.8737, 0.984), 'b100': (0.8709, 0.975), 'dense': (0.8684, 0.992), 'rrf': (0.8598, 0.993), 'h50': (0.8855, 0.992), 'h100': (0.8855, 0.994), 'afh': (0.8867, 0.993)}

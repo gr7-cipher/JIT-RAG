@@ -1,0 +1,9 @@
+=== .venv/bin/python -I e03_rerank_sparse_hparams.py ce 14:41
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+14:45:34 scifact {50: 0.6856, 100: 0.6989, 200: 0.6981} 7.332173298509225
+14:47:24 nfcorpus {50: 0.3494, 100: 0.3519, 200: 0.3533} 8.388375539473264
+14:51:55 arguana {50: 0.4817, 100: 0.4681, 200: 0.4547} 8.981379870646158
+14:55:48 fiqa {50: 0.4127, 100: 0.4419, 200: 0.4414} 7.731121890549671
+15:00:28 scidocs {50: 0.1564, 100: 0.1539, 200: 0.1538} 9.098201390546574
+15:01:59 trec-covid {50: 0.7174, 100: 0.7395, 200: 0.7317} 8.598165007462097
+15:02:34 quora {50: 0.8556, 100: 0.8466, 200: 0.8474} 0.965979791044673
