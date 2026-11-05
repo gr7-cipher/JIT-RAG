@@ -1,0 +1,64 @@
+{
+ "af": {
+  "mu": 0.013562456476559,
+  "sd": 0.2742129097856734,
+  "a0": 0.85,
+  "b": -0.03,
+  "g": 0.3,
+  "dev_macro": 0.5802906972516085,
+  "dev": {
+   "scifact": 0.7257,
+   "nfcorpus": 0.386,
+   "arguana": 0.6239,
+   "fiqa": 0.4132,
+   "scidocs": 0.2049,
+   "trec-covid": 0.7814,
+   "quora": 0.927
+  }
+ },
+ "h100": {
+  "mu": -0.21999599450647647,
+  "sd": 0.271348580427395,
+  "a0": 0.85,
+  "b": -0.02,
+  "g": 0.0,
+  "dev_macro": 0.5764809490893753,
+  "dev": {
+   "scifact": 0.7286,
+   "nfcorpus": 0.3817,
+   "arguana": 0.6199,
+   "fiqa": 0.4147,
+   "scidocs": 0.1996,
+   "trec-covid": 0.7684,
+   "quora": 0.9226
+  }
+ },
+ "h100p": {
+  "mu": -0.21999599450647647,
+  "sd": 0.271348580427395,
+  "a0": 0.85,
+  "b": -0.03,
+  "g": 0.3,
+  "dev_macro": 0.5794084291451528,
+  "dev": {
+   "scifact": 0.7271,
+   "nfcorpus": 0.3868,
+   "arguana": 0.6232,
+   "fiqa": 0.4144,
+   "scidocs": 0.2054,
+   "trec-covid": 0.7749,
+   "quora": 0.9241
+  }
+ },
+ "criteria": {
+  "adopt_if": "on new data the rule's macro nDCG@10 is not below frozen JIT-AF+ANN (paired 95% CI lower bound >= -0.002), its FiQA fresh gap to Hybrid K=100 has a CI containing 0 or positive, and no new collection is significantly worse than frozen JIT-AF+ANN after Holm correction",
+  "new_data": [
+   "webis-touche2020",
+   "cqa-webmasters",
+   "cqa-android",
+   "cqa-wordpress",
+   "fiqa fresh train queries",
+   "nfcorpus fresh train queries"
+  ]
+ }
+}

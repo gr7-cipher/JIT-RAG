@@ -1,0 +1,4 @@
+=== .venv/bin/python -I e06_extra.py canary 16:12
+experiments/e06_extra.py:43: DeprecationWarning: delete_documents is deprecated; use delete_documents_by_term or delete_documents_by_query instead
+  t = time.perf_counter(); w.delete_documents("id", 10 ** 7); w.commit(); ix.reload(); r["delete_commit_ms"] = (time.perf_counter() - t) * 1e3
+16:12:02 {'hits_before': 1, 'files_before': 7, 'files_with_plain_text_before': 1, 'delete_commit_ms': 18.82104200012691, 'hits_after': 0, 'old_files_unchanged': 6, 'new_files': ['.del'], 'files_with_plain_text_after': 1, 'rewrite_5k_s': 0.2918379306793213, 'files_with_plain_text_after_rewrite': 0}

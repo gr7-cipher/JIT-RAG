@@ -1,0 +1,418 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7690.16it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:35:58 calib {'calib': {'c8': 0.013432389730482441, 'c32': 0.010452295654303612, 'tq': 0.04050554200148326}, 't': 1793892958.384823}
+10:37:05 {'sys': 'lazy50', 'u': 20, 'Q': 5, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 41.73, 'p95': 118.302, 'p99': 164.581, 'mean': 52.066, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.117, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.274, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-4 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:40:34 {'sys': 'sa100', 'u': 20, 'Q': 1, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 35.71, 'p95': 130.895, 'p99': 594.68, 'mean': 56.515, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.245, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.273, 'dup': 0, 'enc_max': 1}
+10:41:52 {'sys': 'lazy50m10', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 507, 'n_cens': 0, 'backlog_at_end': 105, 'p50': 5870.87, 'p95': 10507.307, 'p99': 11073.137, 'mean': 6315.257, 'f_end': 0.178, 'f_tail': 0.174, 'bg_rate': 0.267, 'q_enc_rate': 43.9, 'enc_per_q': 5.255, 'ndcg': 0.279, 'dup': 3, 'enc_max': 2}
+Exception in thread Thread-18 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:43:00 {'sys': 'afh', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 3, 'p50': 903.299, 'p95': 1825.644, 'p99': 2274.622, 'mean': 995.409, 'f_end': 0.169, 'f_tail': 0.159, 'bg_rate': 7.6, 'q_enc_rate': 42.533, 'enc_per_q': 9.52, 'ndcg': 0.27, 'dup': 6, 'enc_max': 2}
+Exception in thread Thread-25 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:44:07 {'sys': 'lazy50', 'u': 20, 'Q': 10, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 60.0, 'n_done': 507, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 34.893, 'p95': 133.208, 'p99': 231.511, 'mean': 48.608, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.183, 'q_enc_rate': 0.033, 'enc_per_q': 0.003, 'ndcg': 0.27, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-32 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:45:54 {'sys': 'afh', 'u': 20, 'Q': 2, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 31.364, 'p95': 66.995, 'p99': 88.384, 'mean': 36.074, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.31, 'q_enc_rate': 0.01, 'enc_per_q': 0.005, 'ndcg': 0.249, 'dup': 0, 'enc_max': 1}
+10:47:02 {'sys': 'sa100', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 507, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 100.738, 'p95': 173.506, 'p99': 209.544, 'mean': 102.333, 'f_end': 0.174, 'f_tail': 0.163, 'bg_rate': 46.933, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.261, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-46 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+Exception in thread Thread-53 (background):
+Traceback (most recent call last):
+10:50:28 {'sys': 'lazy50', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 425.382, 'p95': 771.561, 'p99': 830.84, 'mean': 454.919, 'f_end': 0.239, 'f_tail': 0.221, 'bg_rate': 47.68, 'q_enc_rate': 7.99, 'enc_per_q': 8.435, 'ndcg': 0.329, 'dup': 4, 'enc_max': 2}
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:53:56 {'sys': 'lazy50', 'u': 20, 'Q': 1, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 28.467, 'p95': 70.794, 'p99': 150.293, 'mean': 35.194, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.97, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.273, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-60 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:55:43 {'sys': 'afh', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 834.942, 'p95': 1195.283, 'p99': 1353.692, 'mean': 849.003, 'f_end': 0.188, 'f_tail': 0.176, 'bg_rate': 33.92, 'q_enc_rate': 21.44, 'enc_per_q': 11.429, 'ndcg': 0.284, 'dup': 4, 'enc_max': 2}
+Exception in thread Thread-67 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:56:50 {'sys': 'lazy50', 'u': 200, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 1, 'p50': 715.072, 'p95': 1365.003, 'p99': 1719.33, 'mean': 778.778, 'f_end': 0.284, 'f_tail': 0.261, 'bg_rate': 15.6, 'q_enc_rate': 39.25, 'enc_per_q': 8.715, 'ndcg': 0.294, 'dup': 6, 'enc_max': 2}
+Exception in thread Thread-74 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:58:01 {'sys': 'lazy50', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 507, 'n_cens': 0, 'backlog_at_end': 44, 'p50': 1550.157, 'p95': 4167.268, 'p99': 4442.417, 'mean': 2119.978, 'f_end': 0.172, 'f_tail': 0.164, 'bg_rate': 2.4, 'q_enc_rate': 45.983, 'enc_per_q': 4.935, 'ndcg': 0.277, 'dup': 7, 'enc_max': 2}
+Exception in thread Thread-81 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+10:59:29 {'sys': 'afh', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 276, 'n_cens': 231, 'backlog_at_end': 333, 'p50': 29235.553, 'p95': 40961.647, 'p99': 41664.401, 'mean': 29162.595, 'f_end': 0.179, 'f_tail': 0.179, 'bg_rate': 0.267, 'q_enc_rate': 43.583, 'enc_per_q': 9.849, 'ndcg': 0.266, 'dup': 7, 'enc_max': 2}
+Exception in thread Thread-88 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:00:56 {'sys': 'afh', 'u': 200, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 225, 'n_cens': 3, 'backlog_at_end': 60, 'p50': 7117.824, 'p95': 20760.943, 'p99': 21561.634, 'mean': 9208.406, 'f_end': 0.287, 'f_tail': 0.286, 'bg_rate': 0.667, 'q_enc_rate': 52.1, 'enc_per_q': 15.825, 'ndcg': 0.285, 'dup': 6, 'enc_max': 2}
+Exception in thread Thread-95 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:04:24 {'sys': 'afh', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 872.849, 'p95': 1202.192, 'p99': 1360.187, 'mean': 893.095, 'f_end': 0.231, 'f_tail': 0.217, 'bg_rate': 43.48, 'q_enc_rate': 14.145, 'enc_per_q': 15.005, 'ndcg': 0.306, 'dup': 7, 'enc_max': 2}
+Exception in thread Thread-102 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:05:52 {'sys': 'lazy50', 'u': 100, 'Q': 5, 'policy': 'fifo', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 181, 'n_cens': 47, 'backlog_at_end': 106, 'p50': 23562.953, 'p95': 32255.282, 'p99': 33619.803, 'mean': 22195.256, 'f_end': 0.164, 'f_tail': 0.164, 'bg_rate': 36.167, 'q_enc_rate': 16.5, 'enc_per_q': 6.604, 'ndcg': 0.294, 'dup': 4, 'enc_max': 2}
+Exception in thread Thread-109 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:07:39 {'sys': 'sa100', 'u': 20, 'Q': 2, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 26.365, 'p95': 52.319, 'p99': 87.942, 'mean': 30.882, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.16, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.263, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-116 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:08:47 {'sys': 'lazy50', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 467.128, 'p95': 806.068, 'p99': 991.219, 'mean': 493.792, 'f_end': 0.165, 'f_tail': 0.157, 'bg_rate': 25.2, 'q_enc_rate': 26.867, 'enc_per_q': 5.913, 'ndcg': 0.283, 'dup': 3, 'enc_max': 2}
+Exception in thread Thread-123 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:10:15 {'sys': 'afh', 'u': 100, 'Q': 5, 'policy': 'fifo', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 76, 'n_cens': 152, 'backlog_at_end': 183, 'p50': 39484.733, 'p95': 54126.647, 'p99': 55520.484, 'mean': 39523.12, 'f_end': 0.155, 'f_tail': 0.155, 'bg_rate': 41.533, 'q_enc_rate': 16.567, 'enc_per_q': 11.416, 'ndcg': 0.256, 'dup': 6, 'enc_max': 2}
+Exception in thread Thread-130 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:12:02 {'sys': 'lazy50', 'u': 20, 'Q': 2, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 26.191, 'p95': 79.166, 'p99': 128.829, 'mean': 33.635, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.04, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.263, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-137 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:13:09 {'sys': 'sa100', 'u': 200, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 84.482, 'p95': 149.079, 'p99': 163.74, 'mean': 85.958, 'f_end': 0.283, 'f_tail': 0.26, 'bg_rate': 55.067, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.268, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-144 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:14:16 {'sys': 'sa100', 'u': 20, 'Q': 5, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 27.297, 'p95': 108.867, 'p99': 308.008, 'mean': 40.69, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.233, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.274, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-151 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:15:22 {'sys': 'sa100', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 91.035, 'p95': 148.471, 'p99': 156.926, 'mean': 91.519, 'f_end': 0.16, 'f_tail': 0.151, 'bg_rate': 55.467, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.266, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-158 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:16:29 {'sys': 'afh', 'u': 20, 'Q': 10, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 60.0, 'n_done': 507, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 30.021, 'p95': 62.967, 'p99': 79.559, 'mean': 35.251, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.217, 'q_enc_rate': 0.083, 'enc_per_q': 0.01, 'ndcg': 0.26, 'dup': 4, 'enc_max': 2}
+Exception in thread Thread-165 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:17:36 {'sys': 'sa100', 'u': 100, 'Q': 5, 'policy': 'fifo', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 374.712, 'p95': 825.363, 'p99': 1026.397, 'mean': 387.133, 'f_end': 0.161, 'f_tail': 0.153, 'bg_rate': 54.933, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.266, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-172 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:18:43 {'sys': 'sa100', 'u': 20, 'Q': 10, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 60.0, 'n_done': 507, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 23.895, 'p95': 54.09, 'p99': 68.743, 'mean': 29.081, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.233, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.27, 'dup': 0, 'enc_max': 1}
+Exception in thread Thread-179 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:20:30 {'sys': 'lazy50m10', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 407.535, 'p95': 613.044, 'p99': 692.9, 'mean': 413.05, 'f_end': 0.186, 'f_tail': 0.175, 'bg_rate': 44.08, 'q_enc_rate': 12.29, 'enc_per_q': 6.487, 'ndcg': 0.288, 'dup': 4, 'enc_max': 2}
+Exception in thread Thread-186 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+Exception in thread Thread-193 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+11:23:56 {'sys': 'sa100', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 98.643, 'p95': 153.707, 'p99': 190.834, 'mean': 94.06, 'f_end': 0.233, 'f_tail': 0.217, 'bg_rate': 56.76, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.299, 'dup': 0, 'enc_max': 1}
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+Exception in thread Thread-200 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+11:25:42 {'sys': 'sa100', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 78.631, 'p95': 147.314, 'p99': 164.173, 'mean': 81.792, 'f_end': 0.184, 'f_tail': 0.173, 'bg_rate': 56.88, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.269, 'dup': 0, 'enc_max': 1}
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+Exception in thread Thread-207 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+11:27:29 {'sys': 'lazy50', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 100.0, 'n_done': 171, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 456.718, 'p95': 4651.288, 'p99': 6117.061, 'mean': 939.433, 'f_end': 0.202, 'f_tail': 0.189, 'bg_rate': 36.72, 'q_enc_rate': 13.17, 'enc_per_q': 6.979, 'ndcg': 0.292, 'dup': 4, 'enc_max': 2}
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+Exception in thread Thread-214 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+11:28:37 {'sys': 'afh', 'u': 20, 'Q': 5, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 30.744, 'p95': 59.996, 'p99': 91.256, 'mean': 36.245, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.817, 'q_enc_rate': 0.033, 'enc_per_q': 0.007, 'ndcg': 0.262, 'dup': 2, 'enc_max': 2}
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:32:04 {'sys': 'afh', 'u': 20, 'Q': 1, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 36.724, 'p95': 110.003, 'p99': 276.362, 'mean': 51.74, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.19, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.258, 'dup': 0, 'enc_max': 1}
+11:33:11 {'sys': 'lazy50m10', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 60.0, 'n_done': 228, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 520.434, 'p95': 910.321, 'p99': 1136.847, 'mean': 564.219, 'f_end': 0.174, 'f_tail': 0.166, 'bg_rate': 19.2, 'q_enc_rate': 27.55, 'enc_per_q': 6.036, 'ndcg': 0.281, 'dup': 2, 'enc_max': 2}
+Exception in thread Thread-228 (background):
+Traceback (most recent call last):
+  File "~/miniforge3/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "~/miniforge3/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "experiments/e18_live.py", line 56, in background
+    enc_docs(b, "bg")
+  File "experiments/e18_live.py", line 40, in enc_docs
+    if new.any(): H.add_items(X[new], ids[new])
+NameError: free variable 'H' referenced before assignment in enclosing scope
+11:36:38 {'sys': 'lazy50m10', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 0, 'dur': 200.0, 'n_done': 180, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 391.311, 'p95': 557.799, 'p99': 632.666, 'mean': 402.799, 'f_end': 0.23, 'f_tail': 0.216, 'bg_rate': 50.12, 'q_enc_rate': 7.4, 'enc_per_q': 7.801, 'ndcg': 0.328, 'dup': 1, 'enc_max': 2}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7857.53it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+11:37:10 calib {'calib': {'c8': 0.012944016845708006, 'c32': 0.010111566812497585, 'tq': 0.03887812450193451}, 't': 1793896630.2551491}
+11:40:38 {'sys': 'afh', 'u': 20, 'Q': 1, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 37.806, 'p95': 100.106, 'p99': 175.824, 'mean': 48.952, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.005, 'q_enc_rate': 0.01, 'enc_per_q': 0.01, 'ndcg': 0.27, 'dup': 2, 'enc_max': 2}
+11:41:45 {'sys': 'sa100', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 102.038, 'p95': 185.166, 'p99': 283.304, 'mean': 104.722, 'f_end': 0.176, 'f_tail': 0.165, 'bg_rate': 47.733, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.271, 'dup': 0, 'enc_max': 1}
+11:42:53 {'sys': 'lazy50', 'u': 20, 'Q': 10, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 60.0, 'n_done': 470, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 26.634, 'p95': 57.26, 'p99': 77.335, 'mean': 31.202, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.683, 'q_enc_rate': 0.033, 'enc_per_q': 0.004, 'ndcg': 0.277, 'dup': 2, 'enc_max': 2}
+11:44:21 {'sys': 'afh', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 354, 'n_cens': 116, 'backlog_at_end': 226, 'p50': 22677.502, 'p95': 31161.447, 'p99': 32049.907, 'mean': 21327.443, 'f_end': 0.174, 'f_tail': 0.174, 'bg_rate': 0.133, 'q_enc_rate': 47.867, 'enc_per_q': 8.773, 'ndcg': 0.273, 'dup': 8, 'enc_max': 2}
+11:45:50 {'sys': 'afh', 'u': 100, 'Q': 5, 'policy': 'fifo', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 65, 'n_cens': 176, 'backlog_at_end': 205, 'p50': 41558.926, 'p95': 55489.083, 'p99': 57791.027, 'mean': 40594.088, 'f_end': 0.162, 'f_tail': 0.163, 'bg_rate': 39.433, 'q_enc_rate': 15.8, 'enc_per_q': 11.81, 'ndcg': 0.279, 'dup': 4, 'enc_max': 2}
+11:46:59 {'sys': 'lazy50', 'u': 200, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 8, 'p50': 1155.479, 'p95': 4061.011, 'p99': 4379.394, 'mean': 1895.165, 'f_end': 0.287, 'f_tail': 0.267, 'bg_rate': 13.567, 'q_enc_rate': 40.733, 'enc_per_q': 8.832, 'ndcg': 0.316, 'dup': 1, 'enc_max': 2}
+11:48:06 {'sys': 'lazy50', 'u': 20, 'Q': 5, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 28.389, 'p95': 72.915, 'p99': 100.421, 'mean': 35.462, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.9, 'q_enc_rate': 0.017, 'enc_per_q': 0.003, 'ndcg': 0.275, 'dup': 1, 'enc_max': 2}
+11:49:12 {'sys': 'sa100', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 470, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 89.682, 'p95': 159.045, 'p99': 172.049, 'mean': 93.617, 'f_end': 0.171, 'f_tail': 0.161, 'bg_rate': 50.933, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.27, 'dup': 0, 'enc_max': 1}
+11:51:01 {'sys': 'afh', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 4, 'p50': 880.126, 'p95': 2537.269, 'p99': 3222.734, 'mean': 1086.592, 'f_end': 0.191, 'f_tail': 0.178, 'bg_rate': 33.92, 'q_enc_rate': 21.78, 'enc_per_q': 11.784, 'ndcg': 0.298, 'dup': 3, 'enc_max': 2}
+11:52:49 {'sys': 'afh', 'u': 20, 'Q': 2, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 31.022, 'p95': 60.022, 'p99': 89.67, 'mean': 35.328, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.44, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.258, 'dup': 0, 'enc_max': 1}
+11:56:16 {'sys': 'lazy50', 'u': 20, 'Q': 1, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 27.863, 'p95': 50.803, 'p99': 93.331, 'mean': 32.871, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.975, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.281, 'dup': 0, 'enc_max': 1}
+11:57:23 {'sys': 'sa100', 'u': 20, 'Q': 10, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 60.0, 'n_done': 470, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 29.667, 'p95': 89.076, 'p99': 147.208, 'mean': 38.835, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.3, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.277, 'dup': 0, 'enc_max': 1}
+11:58:33 {'sys': 'lazy50', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 470, 'n_cens': 0, 'backlog_at_end': 26, 'p50': 1280.244, 'p95': 3001.298, 'p99': 3414.923, 'mean': 1504.738, 'f_end': 0.173, 'f_tail': 0.165, 'bg_rate': 4.133, 'q_enc_rate': 44.183, 'enc_per_q': 5.027, 'ndcg': 0.29, 'dup': 8, 'enc_max': 2}
+11:59:40 {'sys': 'lazy50', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 419.093, 'p95': 1070.384, 'p99': 1304.322, 'mean': 494.341, 'f_end': 0.164, 'f_tail': 0.155, 'bg_rate': 28.133, 'q_enc_rate': 26.517, 'enc_per_q': 5.517, 'ndcg': 0.295, 'dup': 5, 'enc_max': 2}
+12:00:47 {'sys': 'afh', 'u': 20, 'Q': 10, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 60.0, 'n_done': 470, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 37.261, 'p95': 120.792, 'p99': 168.498, 'mean': 48.554, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.75, 'q_enc_rate': 0.083, 'enc_per_q': 0.011, 'ndcg': 0.259, 'dup': 4, 'enc_max': 2}
+12:02:14 {'sys': 'afh', 'u': 200, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 225, 'n_cens': 16, 'backlog_at_end': 73, 'p50': 7031.166, 'p95': 23885.437, 'p99': 24666.551, 'mean': 10762.655, 'f_end': 0.289, 'f_tail': 0.288, 'bg_rate': 0.533, 'q_enc_rate': 52.133, 'enc_per_q': 15.605, 'ndcg': 0.309, 'dup': 7, 'enc_max': 2}
+12:03:27 {'sys': 'lazy50m10', 'u': 100, 'Q': 10, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 470, 'n_cens': 0, 'backlog_at_end': 49, 'p50': 2758.365, 'p95': 5360.076, 'p99': 6016.903, 'mean': 2744.393, 'f_end': 0.179, 'f_tail': 0.172, 'bg_rate': 3.2, 'q_enc_rate': 42.717, 'enc_per_q': 5.094, 'ndcg': 0.289, 'dup': 9, 'enc_max': 2}
+12:05:13 {'sys': 'lazy50m10', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 406.978, 'p95': 641.206, 'p99': 769.996, 'mean': 419.503, 'f_end': 0.187, 'f_tail': 0.177, 'bg_rate': 44.24, 'q_enc_rate': 12.77, 'enc_per_q': 6.603, 'ndcg': 0.307, 'dup': 5, 'enc_max': 2}
+12:08:39 {'sys': 'lazy50', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 430.443, 'p95': 687.016, 'p99': 833.76, 'mean': 452.332, 'f_end': 0.235, 'f_tail': 0.222, 'bg_rate': 48.48, 'q_enc_rate': 8.38, 'enc_per_q': 8.675, 'ndcg': 0.322, 'dup': 1, 'enc_max': 2}
+12:09:46 {'sys': 'sa100', 'u': 100, 'Q': 5, 'policy': 'fifo', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 443.682, 'p95': 1924.5, 'p99': 2243.14, 'mean': 627.847, 'f_end': 0.163, 'f_tail': 0.156, 'bg_rate': 54.4, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.271, 'dup': 0, 'enc_max': 1}
+12:13:13 {'sys': 'sa100', 'u': 20, 'Q': 1, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 25.657, 'p95': 51.355, 'p99': 69.817, 'mean': 30.161, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.04, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.282, 'dup': 0, 'enc_max': 1}
+12:14:20 {'sys': 'lazy50m10', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 436.107, 'p95': 995.539, 'p99': 1167.245, 'mean': 484.966, 'f_end': 0.165, 'f_tail': 0.157, 'bg_rate': 27.067, 'q_enc_rate': 26.6, 'enc_per_q': 5.49, 'ndcg': 0.295, 'dup': 6, 'enc_max': 2}
+12:15:48 {'sys': 'lazy50', 'u': 100, 'Q': 5, 'policy': 'fifo', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 196, 'n_cens': 45, 'backlog_at_end': 105, 'p50': 18125.851, 'p95': 29955.389, 'p99': 30950.059, 'mean': 18576.673, 'f_end': 0.16, 'f_tail': 0.16, 'bg_rate': 38.317, 'q_enc_rate': 17.283, 'enc_per_q': 6.02, 'ndcg': 0.299, 'dup': 5, 'enc_max': 2}
+12:16:55 {'sys': 'sa100', 'u': 20, 'Q': 5, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 25.836, 'p95': 57.983, 'p99': 86.81, 'mean': 31.482, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.85, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.275, 'dup': 0, 'enc_max': 1}
+12:20:21 {'sys': 'sa100', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 83.781, 'p95': 152.208, 'p99': 157.612, 'mean': 87.075, 'f_end': 0.239, 'f_tail': 0.225, 'bg_rate': 56.24, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.284, 'dup': 0, 'enc_max': 1}
+12:21:35 {'sys': 'afh', 'u': 100, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 28, 'p50': 1483.434, 'p95': 7416.366, 'p99': 7738.343, 'mean': 3426.158, 'f_end': 0.174, 'f_tail': 0.165, 'bg_rate': 8.4, 'q_enc_rate': 39.567, 'enc_per_q': 9.356, 'ndcg': 0.28, 'dup': 5, 'enc_max': 2}
+12:22:41 {'sys': 'sa100', 'u': 200, 'Q': 5, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 92.047, 'p95': 155.529, 'p99': 167.903, 'mean': 94.014, 'f_end': 0.287, 'f_tail': 0.263, 'bg_rate': 54.4, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.272, 'dup': 0, 'enc_max': 1}
+12:26:08 {'sys': 'afh', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 930.516, 'p95': 1294.027, 'p99': 1350.276, 'mean': 937.209, 'f_end': 0.237, 'f_tail': 0.223, 'bg_rate': 42.28, 'q_enc_rate': 14.59, 'enc_per_q': 15.129, 'ndcg': 0.315, 'dup': 3, 'enc_max': 2}
+12:29:34 {'sys': 'lazy50m10', 'u': 100, 'Q': 1, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 200.0, 'n_done': 181, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 392.038, 'p95': 588.164, 'p99': 703.449, 'mean': 416.333, 'f_end': 0.236, 'f_tail': 0.223, 'bg_rate': 49.555, 'q_enc_rate': 7.495, 'enc_per_q': 7.763, 'ndcg': 0.319, 'dup': 0, 'enc_max': 1}
+12:31:21 {'sys': 'sa100', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 87.407, 'p95': 154.72, 'p99': 170.008, 'mean': 87.497, 'f_end': 0.191, 'f_tail': 0.18, 'bg_rate': 55.92, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.271, 'dup': 0, 'enc_max': 1}
+12:33:08 {'sys': 'sa100', 'u': 20, 'Q': 2, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 27.578, 'p95': 55.796, 'p99': 86.3, 'mean': 31.875, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.43, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.27, 'dup': 0, 'enc_max': 1}
+12:34:55 {'sys': 'lazy50', 'u': 100, 'Q': 2, 'policy': 'priority', 'backlog0': 0.1, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 427.382, 'p95': 656.797, 'p99': 761.82, 'mean': 433.335, 'f_end': 0.192, 'f_tail': 0.181, 'bg_rate': 41.67, 'q_enc_rate': 13.43, 'enc_per_q': 6.948, 'ndcg': 0.307, 'dup': 4, 'enc_max': 2}
+12:36:42 {'sys': 'lazy50', 'u': 20, 'Q': 2, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 100.0, 'n_done': 172, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 26.468, 'p95': 60.006, 'p99': 174.751, 'mean': 35.853, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 20.4, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.269, 'dup': 0, 'enc_max': 1}
+12:37:49 {'sys': 'afh', 'u': 20, 'Q': 5, 'policy': 'priority', 'backlog0': 0.0, 'repeat': 1, 'dur': 60.0, 'n_done': 241, 'n_cens': 0, 'backlog_at_end': 0, 'p50': 29.252, 'p95': 60.852, 'p99': 73.304, 'mean': 34.885, 'f_end': 0.0, 'f_tail': 0.0, 'bg_rate': 19.833, 'q_enc_rate': 0.0, 'enc_per_q': 0.0, 'ndcg': 0.26, 'dup': 0, 'enc_max': 1}

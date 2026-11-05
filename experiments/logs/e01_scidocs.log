@@ -1,0 +1,14 @@
+03:20:40 scidocs docs 25657 queries 500
+03:20:45 first stage done 0.4957710625603795
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7850.65it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+03:24:42 embeddings done 226.1892910003662
+03:24:49 dense done {'ms_p50': 0.5038334056735039, 'ms_p95': 0.7036458235234015, 'recall10_vs_exact': 0.9994000000000001}
+03:25:04 scidocs DONE {'bm25': 0.1601, 'dense_exact': 0.2191, 'jit_k100': 0.2076, 'jit_k1000': 0.2161, 'rrf_bm25_dense': 0.2027}

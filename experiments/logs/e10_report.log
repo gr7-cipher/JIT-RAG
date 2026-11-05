@@ -1,0 +1,32 @@
+jitcc base 0.5863  +CE 0.5901  (no TREC-COVID 0.5568) {'scifact': [20, 0.3], 'nfcorpus': [20, 0.3], 'arguana': [50, 0.3], 'fiqa': [20, 0.3], 'scidocs': [20, 0.3], 'trec-covid': [20, 0.3], 'quora': [20, 0.3]} {'scifa': 0.735, 'nfcor': 0.354, 'argua': 0.636, 'fiqa': 0.502, 'scido': 0.193, 'trec-': 0.79, 'quora': 0.921}
+hybcc base 0.5858  +CE 0.5912  (no TREC-COVID 0.5574) {'scifact': [50, 0.3], 'nfcorpus': [50, 0.3], 'arguana': [50, 0.4], 'fiqa': [50, 0.3], 'scidocs': [50, 0.3], 'trec-covid': [50, 0.3], 'quora': [50, 0.3]} {'scifa': 0.738, 'nfcor': 0.357, 'argua': 0.613, 'fiqa': 0.517, 'scido': 0.2, 'trec-': 0.794, 'quora': 0.919}
+rrf base 0.5777  +CE 0.5776  (no TREC-COVID 0.5441) {'scifact': [20, 0.4], 'nfcorpus': [20, 0.3], 'arguana': [20, 0.4], 'fiqa': [50, 0.1], 'scidocs': [50, 0.3], 'trec-covid': [10, 0.3], 'quora': [20, 0.4]} {'scifa': 0.728, 'nfcor': 0.363, 'argua': 0.612, 'fiqa': 0.469, 'scido': 0.188, 'trec-': 0.778, 'quora': 0.906}
+dense base 0.5759  +CE 0.5846  (no TREC-COVID 0.5531) {'scifact': [50, 0.4], 'nfcorpus': [50, 0.4], 'arguana': [50, 0.5], 'fiqa': [50, 0.4], 'scidocs': [50, 0.4], 'trec-covid': [50, 0.3], 'quora': [50, 0.4]} {'scifa': 0.724, 'nfcor': 0.354, 'argua': 0.606, 'fiqa': 0.53, 'scido': 0.195, 'trec-': 0.774, 'quora': 0.909}
+jitcc+ce vs hybcc+ce macro -0.0011 [-0.0071,+0.0049]; no TREC -0.0006 [-0.0067,+0.0057] {'scifa': '-0.003', 'nfcor': '-0.003', 'argua': '+0.023', 'fiqa': '-0.015', 'scido': '-0.007', 'trec-': '-0.004', 'quora': '+0.001'}
+jitcc+ce vs rrf+ce macro +0.0125 [+0.0051,+0.0197]; no TREC +0.0126 [+0.0047,+0.0207] {'scifa': '+0.008', 'nfcor': '-0.009', 'argua': '+0.025', 'fiqa': '+0.033*', 'scido': '+0.005', 'trec-': '+0.012', 'quora': '+0.015'}
+jitcc+ce vs dense+ce macro +0.0055 [-0.0024,+0.0134]; no TREC +0.0036 [-0.0041,+0.0118] {'scifa': '+0.012', 'nfcor': '-0.000', 'argua': '+0.030', 'fiqa': '-0.029', 'scido': '-0.003', 'trec-': '+0.017', 'quora': '+0.012'}
+jitcc+ce vs jitcc macro +0.0038 [-0.0015,+0.0091]; no TREC +0.0026 [-0.0031,+0.0083] {'scifa': '+0.008', 'nfcor': '+0.002', 'argua': '-0.014', 'fiqa': '+0.010', 'scido': '+0.004', 'trec-': '+0.011', 'quora': '+0.004'}
+hybcc+ce vs rrf+ce macro +0.0136 [+0.0059,+0.0209]; no TREC +0.0133 [+0.0053,+0.0214] {'scifa': '+0.011', 'nfcor': '-0.006', 'argua': '+0.002', 'fiqa': '+0.048*', 'scido': '+0.012', 'trec-': '+0.016', 'quora': '+0.013'}
+0.0 {'jitcc': 0.5715, 'encoded': 0.0, 'dense': 0.5605, 'rrf': 0.5605, 'hybcc': 0.5707}
+0.01 {'jitcc': 0.5715, 'encoded': 1.1041, 'dense': 0.5571, 'rrf': 0.5575, 'hybcc': 0.5671, 'rrfimp': 0.5574, 'hybimp': 0.5672}
+0.05 {'jitcc': 0.5715, 'encoded': 4.929, 'dense': 0.5398, 'rrf': 0.5388, 'hybcc': 0.5497, 'rrfimp': 0.5491, 'hybimp': 0.561}
+0.1 {'jitcc': 0.5715, 'encoded': 9.7633, 'dense': 0.5208, 'rrf': 0.5203, 'hybcc': 0.5307, 'rrfimp': 0.5427, 'hybimp': 0.5538}
+0.25 {'jitcc': 0.5715, 'encoded': 23.7564, 'dense': 0.4657, 'rrf': 0.4666, 'hybcc': 0.4741, 'rrfimp': 0.5261, 'hybimp': 0.535}
+0.5 {'jitcc': 0.5715, 'encoded': 48.3308, 'dense': 0.3473, 'rrf': 0.3534, 'hybcc': 0.3567, 'rrfimp': 0.5022, 'hybimp': 0.487}
+recent {'jitcc': 0.5715, 'encoded': 4.5117, 'dense': 0.1817, 'rrf': 0.1869, 'hybcc': 0.1869, 'rrfimp': 0.5549, 'hybimp': 0.4206}
+jitcc vs rrfimp 0.1 macro +0.0289 [+0.0227,+0.0353] {'scifa': '+0.008', 'nfcor': '+0.004', 'argua': '+0.039*', 'fiqa': '+0.046*', 'scido': '+0.014*', 'trec-': '+0.058*', 'quora': '+0.033*'}
+jitcc vs hybimp 0.1 macro +0.0177 [+0.0114,+0.0240] {'scifa': '+0.026*', 'nfcor': '+0.005', 'argua': '+0.061*', 'fiqa': '+0.003', 'scido': '+0.000', 'trec-': '+0.012', 'quora': '+0.017*'}
+jitcc vs rrfimp recent macro +0.0166 [+0.0088,+0.0248] {'scifa': '-0.010', 'nfcor': '-0.014*', 'argua': '+0.076*', 'fiqa': '+0.033*', 'scido': '+0.003', 'trec-': '-0.012', 'quora': '+0.041*'}
+jitcc vs hybimp recent macro +0.1510 [+0.1419,+0.1604] {'scifa': '+0.097*', 'nfcor': '+0.052*', 'argua': '+0.614*', 'fiqa': '+0.107*', 'scido': '+0.028*', 'trec-': '+0.070*', 'quora': '+0.090*'}
+jitcc vs rrfimp 0.01 macro +0.0142 [+0.0088,+0.0197] {'scifa': '+0.002', 'nfcor': '-0.004', 'argua': '+0.023', 'fiqa': '+0.024*', 'scido': '+0.008', 'trec-': '+0.024', 'quora': '+0.022*'}
+jitcc vs hybimp 0.01 macro +0.0043 [-0.0006,+0.0091] {'scifa': '+0.014*', 'nfcor': '+0.002', 'argua': '+0.012*', 'fiqa': '-0.011', 'scido': '-0.004', 'trec-': '+0.017', 'quora': '+0.001'}
+jitcc vs rrfimp 0.05 macro +0.0224 [+0.0170,+0.0280] {'scifa': '+0.006', 'nfcor': '-0.000', 'argua': '+0.035*', 'fiqa': '+0.035*', 'scido': '+0.011*', 'trec-': '+0.043*', 'quora': '+0.027*'}
+jitcc vs hybimp 0.05 macro +0.0106 [+0.0049,+0.0163] {'scifa': '+0.018', 'nfcor': '+0.003', 'argua': '+0.033*', 'fiqa': '-0.004', 'scido': '-0.002', 'trec-': '+0.018', 'quora': '+0.007'}
+jitcc vs rrfimp 0.1 macro +0.0289 [+0.0227,+0.0353] {'scifa': '+0.008', 'nfcor': '+0.004', 'argua': '+0.039*', 'fiqa': '+0.046*', 'scido': '+0.014*', 'trec-': '+0.058*', 'quora': '+0.033*'}
+jitcc vs hybimp 0.1 macro +0.0177 [+0.0114,+0.0240] {'scifa': '+0.026*', 'nfcor': '+0.005', 'argua': '+0.061*', 'fiqa': '+0.003', 'scido': '+0.000', 'trec-': '+0.012', 'quora': '+0.017*'}
+jitcc vs rrfimp 0.25 macro +0.0454 [+0.0384,+0.0534] {'scifa': '+0.013', 'nfcor': '+0.012*', 'argua': '+0.061*', 'fiqa': '+0.066*', 'scido': '+0.024*', 'trec-': '+0.100*', 'quora': '+0.041*'}
+jitcc vs hybimp 0.25 macro +0.0366 [+0.0287,+0.0443] {'scifa': '+0.022', 'nfcor': '+0.016*', 'argua': '+0.121*', 'fiqa': '+0.025*', 'scido': '+0.010', 'trec-': '+0.021', 'quora': '+0.040*'}
+jitcc vs rrfimp 0.5 macro +0.0694 [+0.0605,+0.0792] {'scifa': '+0.020', 'nfcor': '+0.018*', 'argua': '+0.097*', 'fiqa': '+0.104*', 'scido': '+0.037*', 'trec-': '+0.155*', 'quora': '+0.054*'}
+jitcc vs hybimp 0.5 macro +0.0846 [+0.0749,+0.0945] {'scifa': '+0.062*', 'nfcor': '+0.036*', 'argua': '+0.272*', 'fiqa': '+0.081*', 'scido': '+0.033*', 'trec-': '+0.045*', 'quora': '+0.063*'}
+jitcc vs rrfimp recent macro +0.0166 [+0.0088,+0.0248] {'scifa': '-0.010', 'nfcor': '-0.014*', 'argua': '+0.076*', 'fiqa': '+0.033*', 'scido': '+0.003', 'trec-': '-0.012', 'quora': '+0.041*'}
+jitcc vs hybimp recent macro +0.1510 [+0.1419,+0.1604] {'scifa': '+0.097*', 'nfcor': '+0.052*', 'argua': '+0.614*', 'fiqa': '+0.107*', 'scido': '+0.028*', 'trec-': '+0.070*', 'quora': '+0.090*'}

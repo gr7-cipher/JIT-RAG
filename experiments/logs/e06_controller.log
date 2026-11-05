@@ -1,0 +1,3 @@
+=== .venv/bin/python -I e06_extra.py controller 16:21
+16:21:22 lexical {'ndcg': 0.3598676663186873, 'meanK': 55.3, 'lat': 472.8921038628365, 'fix_k': 100, 'fix_ndcg': 0.37552049615620026, 'p': 0.055858472631315874, 'best_fixed_k': 100, 'best_fixed_ndcg': 0.37552049615620026, 'p_best_fixed': 0.055858472631315874, 'oracle': 0.4264644589262914, 'feasible': True}
+16:21:34 lexical+probe {'ndcg': 0.3545367785126541, 'meanK': 54.68, 'lat': 475.8534832029964, 'fix_k': 100, 'fix_ndcg': 0.37552049615620026, 'p': 0.017583805107330285, 'best_fixed_k': 100, 'best_fixed_ndcg': 0.37552049615620026, 'p_best_fixed': 0.017583805107330285, 'oracle': 0.4264644589262914, 'feasible': True}
