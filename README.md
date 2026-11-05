@@ -1,6 +1,6 @@
 # Query-time embedding in retrieval-augmented generation
 
-Code, per-query results and logs for the paper "Query-Time Embedding in Retrieval-Augmented Generation: Absorbing Encoder Lag in Indexed Fusion Retrieval". The paper is under review, so its text is not in this repository.
+Code, per-query results and logs for the paper "Query-Time Embedding in Retrieval-Augmented Generation: An Experimental and Queueing Analysis of Encoder Lag in Indexed Fusion Retrieval". The paper is under review, so its text is not in this repository.
 
 When writes exceed encoder capacity, documents reach the inverted index but wait for a vector, and dense search cannot find them. Two designs here deal with that by encoding candidates at query time and storing the vectors:
 
@@ -99,15 +99,16 @@ To run the experiments, first produce embeddings and candidates with `e01_base.p
 
 | In the paper | Script | Stored result |
 |---|---|---|
-| Table 1, collections | `e01_base.py`, `e21_tables.py` | `results/<collection>/meta.json`, `results/e20_stats.json` |
-| Tables 2 and 3, Figure 2, backlog and tests | `e17_lazy.py`, `e20_stats.py` | `results/e17/`, `results/e20_stats.json`, `results/e17_margin.json` |
-| Table 4, ablation | `e17_lazy.py`, `e20_stats.py` | same |
-| Table 5, complete index | `e17_lazy.py`, `e20_stats.py` | same |
-| Tables 6 and 7, budget and write-back | `e17_lazy.py`, `e20_stats.py` | same |
-| Table 8, Figure 3, live load | `e18_live.py`, `e25_shared_check.py`, `e23_pareto.py` | `results/e18_live.json`, `results/e25_shared.json`, `results/e23_pareto.json` |
-| Table 9, latency without contention | `e22_idle.py`, `e14_afh.py latency`, `e13_af.py latency`, `e10_final.py` | `results/e22_idle.json`, `results/e14_latency.json`, `results/e13_latency.json`, `results/e10_latency_hyb.json`, `results/e10_latency.json` |
-| Table 10, overload replay | `e19_overload.py` | `results/e19_overload.json` |
-| Table 11, cost | `e21_cost.py` | `results/e21_cost.json` |
+| Table 2, collections | `e01_base.py`, `e21_tables.py` | `results/<collection>/meta.json`, `results/e20_stats.json` |
+| Tables 3 and 4, Figure 2, backlog and tests | `e17_lazy.py`, `e20_stats.py` | `results/e17/`, `results/e20_stats.json`, `results/e17_margin.json` |
+| Table 5, ablation | `e17_lazy.py`, `e20_stats.py` | same |
+| Table 6, complete index | `e17_lazy.py`, `e20_stats.py` | same |
+| Tables 7 and 8, budget and write-back | `e17_lazy.py`, `e20_stats.py` | same |
+| Section 6.4, corpus coverage against a uniform baseline | `e26_coverage.py` | `results/e26_coverage.json` |
+| Table 9, Figure 3, live load | `e18_live.py`, `e25_shared_check.py`, `e23_pareto.py` | `results/e18_live.json`, `results/e25_shared.json`, `results/e23_pareto.json` |
+| Table 10, latency without contention | `e22_idle.py`, `e14_afh.py latency`, `e13_af.py latency`, `e10_final.py` | `results/e22_idle.json`, `results/e14_latency.json`, `results/e13_latency.json`, `results/e10_latency_hyb.json`, `results/e10_latency.json` |
+| Table 11, overload replay | `e19_overload.py` | `results/e19_overload.json` |
+| Table 12, cost | `e21_cost.py` | `results/e21_cost.json` |
 | Figure 4, freshness | `e05_stream_erasure_filter.py stream` | `results/stream.json` |
 | Earlier designs and supporting measurements | `e01` to `e16` | `results/numbers.json` and others |
 | Section 6.9, generation check | `e24_generation.py` | `results/e24_generation.json` |
