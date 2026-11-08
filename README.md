@@ -42,6 +42,7 @@ Section 4 of the paper models the backlog. Writes arrive at rate `u`, a backgrou
 - With query-side encoders separate from the background encoder, `f(t)` approaches `f_inf = (u - mu) / (u + Q K)`. The budget `m` binds if and only if `m < K f_inf`. It then binds for good from a switching time `t_b`, and `f(t)` approaches `(u - mu - Q m) / u` instead. Equations 7 to 11 give the closed forms, which match numerical integration.
 - On one shared accelerator, query-time and background encoding draw on the same capacity `kappa(Q) = (1 - Q t_q) / c`, so `f(t)` approaches `(u - kappa) / u` for any `K` and `m` (Equation 13). This is the model the live test supports.
 - A query path stays stable only while `Q (t_q + c min(m, K f)) < 1` (Equation 14).
+- The fluid model tracks the mean backlog share, which depends only on total encoding rate. Tail latency depends on the queue of queries at the accelerator, which grows without bound as `Q E[S]` approaches one, where `S = t_q + c min(m, W)` is the work per query. In the live test p95 rose well before the median.
 
 ## Which corpora warm up
 
@@ -117,6 +118,7 @@ To run the experiments, first produce embeddings and candidates with `e01_base.p
 | Table 5, ablation | `e17_lazy.py`, `e20_stats.py` | same |
 | Table 6, complete index | `e17_lazy.py`, `e20_stats.py` | same |
 | Tables 7 and 8, budget and write-back | `e17_lazy.py`, `e20_stats.py` | same |
+| Section 3.3, sign of cosine similarities in candidate sets | `e27_cos_sign.py` | `results/e27_cos_sign.json` |
 | Section 6.4, corpus coverage against a uniform baseline | `e26_coverage.py` | `results/e26_coverage.json` |
 | Table 9, Figure 3, live load | `e18_live.py`, `e25_shared_check.py`, `e23_pareto.py` | `results/e18_live.json`, `results/e25_shared.json`, `results/e23_pareto.json` |
 | Table 10, latency without contention | `e22_idle.py`, `e14_afh.py latency`, `e13_af.py latency`, `e10_final.py` | `results/e22_idle.json`, `results/e14_latency.json`, `results/e13_latency.json`, `results/e10_latency_hyb.json`, `results/e10_latency.json` |
