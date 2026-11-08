@@ -35,6 +35,18 @@ Live test on FiQA with one shared accelerator, 100 writes and 5 queries per seco
 
 A shared-capacity model predicted the backlog of the overloaded runs with a mean absolute error of 0.004. A model that treats query-time encoding as added capacity had an error of 0.065.
 
+## Analytical model
+
+Section 4 of the paper models the backlog. Writes arrive at rate `u`, a background encoder stores documents at rate `mu`, and `Q` queries per second each encode up to `m` waiting candidates out of `K`. The corpus holds `N(t) = N0 + u t` documents, and `f(t) = B(t) / N(t)` is the share still waiting.
+
+- With query-side encoders separate from the background encoder, `f(t)` approaches `f_inf = (u - mu) / (u + Q K)`. The budget `m` binds if and only if `m < K f_inf`. It then binds for good from a switching time `t_b`, and `f(t)` approaches `(u - mu - Q m) / u` instead. Equations 7 to 11 give the closed forms, which match numerical integration.
+- On one shared accelerator, query-time and background encoding draw on the same capacity `kappa(Q) = (1 - Q t_q) / c`, so `f(t)` approaches `(u - kappa) / u` for any `K` and `m` (Equation 13). This is the model the live test supports.
+- A query path stays stable only while `Q (t_q + c min(m, K f)) < 1` (Equation 14).
+
+## Which corpora warm up
+
+Replaying each collection's queries once from an empty store, SciFact touched 97.1% of its documents in 300 queries and Quora touched 8.9% in 500. The number of candidate retrievals per document, `n K / N`, explains both: a uniform-retrieval baseline predicts 99.7% and 9.1%. Topic concentration shows as a shortfall below that baseline when retrievals per document are near one, for example 39.5% against 58.0% on FiQA. Write-back saves the most when documents are retrieved repeatedly (7.80 times fewer encodings on NFCorpus, 1.07 on Quora). A cold tail, which lets a design without ingest-time encoding save work, is largest for big corpora and concentrated queries. `experiments/e26_coverage.py` computes these figures.
+
 ## Repository layout
 
 ```
@@ -83,9 +95,10 @@ BEIR collections are public. This downloads them to `experiments/data/`:
 
 ```bash
 bash scripts/download_data.sh scifact nfcorpus arguana fiqa scidocs trec-covid quora
+bash scripts/download_data.sh webis-touche2020 cqa-webmasters cqa-android cqa-wordpress
 ```
 
-External sets are `webis-touche2020`, `cqa-webmasters`, `cqa-android` and `cqa-wordpress`.
+The second line fetches the external sets. The three `cqa-*` forums come from the single BEIR CQADupStack archive, which the script downloads once. The external FiQA and NFCorpus query sets are train-split queries of the collections above that earlier experiments did not use, so they need no extra download.
 
 ## Reproducing the paper
 

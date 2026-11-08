@@ -19,3 +19,22 @@ authors:
     given-names: Witold
   - family-names: Kassaymeh
     given-names: Sofian
+preferred-citation:
+  type: article
+  title: "Query-Time Embedding in Retrieval-Augmented Generation: An Experimental and Queueing Analysis of Encoder Lag in Indexed Fusion Retrieval"
+  status: submitted
+  authors:
+    - family-names: Rjoub
+      given-names: Gaith
+    - family-names: Irjoob
+      given-names: Ahmad
+    - family-names: Bentahar
+      given-names: Jamal
+    - family-names: Boubouh
+      given-names: Karim
+    - family-names: Almobydeen
+      given-names: Shahed
+    - family-names: Pedrycz
+      given-names: Witold
+    - family-names: Kassaymeh
+      given-names: Sofian
