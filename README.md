@@ -114,17 +114,18 @@ To run the experiments, first produce embeddings and candidates with `e01_base.p
 | In the paper | Script | Stored result |
 |---|---|---|
 | Table 2, collections | `e01_base.py`, `e21_tables.py` | `results/<collection>/meta.json`, `results/e20_stats.json` |
-| Tables 3 and 4, Figure 2, backlog and tests | `e17_lazy.py`, `e20_stats.py` | `results/e17/`, `results/e20_stats.json`, `results/e17_margin.json` |
+| Tables 3 and 4, Figure 3, backlog and tests | `e17_lazy.py`, `e20_stats.py` | `results/e17/`, `results/e20_stats.json`, `results/e17_margin.json` |
 | Table 5, ablation | `e17_lazy.py`, `e20_stats.py` | same |
 | Table 6, complete index | `e17_lazy.py`, `e20_stats.py` | same |
 | Tables 7 and 8, budget and write-back | `e17_lazy.py`, `e20_stats.py` | same |
 | Section 3.3, sign of cosine similarities in candidate sets | `e27_cos_sign.py` | `results/e27_cos_sign.json` |
 | Section 6.4, corpus coverage against a uniform baseline | `e26_coverage.py` | `results/e26_coverage.json` |
-| Table 9, Figure 3, live load | `e18_live.py`, `e25_shared_check.py`, `e23_pareto.py` | `results/e18_live.json`, `results/e25_shared.json`, `results/e23_pareto.json` |
+| Table 9, Figure 7, live load | `e18_live.py`, `e25_shared_check.py`, `e23_pareto.py` | `results/e18_live.json`, `results/e25_shared.json`, `results/e23_pareto.json` |
 | Table 10, latency without contention | `e22_idle.py`, `e14_afh.py latency`, `e13_af.py latency`, `e10_final.py` | `results/e22_idle.json`, `results/e14_latency.json`, `results/e13_latency.json`, `results/e10_latency_hyb.json`, `results/e10_latency.json` |
 | Table 11, overload replay | `e19_overload.py` | `results/e19_overload.json` |
 | Table 12, cost | `e21_cost.py` | `results/e21_cost.json` |
-| Figure 4, freshness | `e05_stream_erasure_filter.py stream` | `results/stream.json` |
+| Figures 2, 4, 5, 6, 8 and 9: backlog trajectory, per-collection effects, budget curves, corpus coverage, model fit, latency distributions | `e28_figures.py` | reads `results/e20_stats.json`, `results/e17/`, `results/e25_shared.json`, `results/e18_live.json`, `results/e26_coverage.json`; writes `results/e28_effects.json` |
+| Figure 10, freshness | `e05_stream_erasure_filter.py stream` | `results/stream.json` |
 | Earlier designs and supporting measurements | `e01` to `e16` | `results/numbers.json` and others |
 | Section 6.9, generation check | `e24_generation.py` | `results/e24_generation.json` |
 

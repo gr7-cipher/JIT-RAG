@@ -3,5 +3,5 @@
 Usage: python scripts/rebuild_tables.py    Output goes to generated/."""
 import os, subprocess, sys
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); exp = os.path.join(root, "experiments"); env = {**os.environ, "JIT_OUT": os.path.join(root, "generated")}
-for s in ["e20_stats.py", "e21_cost.py", "e23_pareto.py", "e25_shared_check.py", "e21_tables.py"]:
+for s in ["e20_stats.py", "e21_cost.py", "e23_pareto.py", "e25_shared_check.py", "e21_tables.py", "e28_figures.py"]:
     print("==", s, flush=True); subprocess.run([sys.executable, s], cwd=exp, env=env, check=True)
