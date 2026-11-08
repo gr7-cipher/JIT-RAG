@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "JIT-RAG experiments: query-time embedding in retrieval-augmented generation"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/gr7-cipher/JIT-RAG"
+authors:
+  - family-names: Rjoub
+    given-names: Gaith
+  - family-names: Irjoob
+    given-names: Ahmad
+  - family-names: Bentahar
+    given-names: Jamal
+  - family-names: Boubouh
+    given-names: Karim
+  - family-names: Almobydeen
+    given-names: Shahed
+  - family-names: Pedrycz
+    given-names: Witold
+  - family-names: Kassaymeh
+    given-names: Sofian
+preferred-citation:
+  type: article
+  title: "Query-Time Embedding in Retrieval-Augmented Generation: An Experimental and Queueing Analysis of Encoder Lag in Indexed Fusion Retrieval"
+  status: submitted
+  authors:
+    - family-names: Rjoub
+      given-names: Gaith
+    - family-names: Irjoob
+      given-names: Ahmad
+    - family-names: Bentahar
+      given-names: Jamal
+    - family-names: Boubouh
+      given-names: Karim
+    - family-names: Almobydeen
+      given-names: Shahed
+    - family-names: Pedrycz
+      given-names: Witold
+    - family-names: Kassaymeh
+      given-names: Sofian

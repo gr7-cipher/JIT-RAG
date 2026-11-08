@@ -1,0 +1,10 @@
+=== .venv/bin/python -I e06_extra.py latcal 16:12
+16:13:29 scifact 7.810314569332452 1570.9785409999313
+experiments/common.py:158: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  return np.zeros((0, m.get_sentence_embedding_dimension()), dtype=np.float32)
+16:13:47 nfcorpus 8.167504281521932 357.72258399993007
+16:14:18 arguana 7.7671697219987745 1552.2982079983194
+16:14:54 fiqa 8.22605372266662 1679.9914580005861
+16:15:27 scidocs 7.84895622266716 1565.5819170005998
+16:16:12 trec-covid 7.733887014334566 1567.7251249999244
+16:16:24 quora 0.922862291998778 206.96099999986473

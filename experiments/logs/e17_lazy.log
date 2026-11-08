@@ -1,0 +1,61 @@
+10:19:22 nfcorpus secs 9 {'full': 0.3704, 'h100': 0.3648, 'h50': 0.3648, 'jitaf': 0.372} {'full': 1.0, 'h100': 1.0, 'h50': 1.0, 'sa100|f0.1|s13': 1.0, 'afh|f0.1|s13': 1.0}
+10:19:45 arguana secs 23 {'full': 0.6341, 'h100': 0.6284, 'h50': 0.6284, 'jitaf': 0.6345} {'full': 1.0, 'h100': 1.0, 'h50': 1.0, 'sa100|f0.1|s13': 1.0, 'afh|f0.1|s13': 1.0}
+10:20:21 fiqa secs 36 {'full': 0.4038, 'h100': 0.4226, 'h50': 0.4226, 'jitaf': 0.3999} {'full': 1.0, 'h100': 1.0, 'h50': 1.0, 'sa100|f0.1|s13': 1.0, 'afh|f0.1|s13': 1.0}
+10:20:44 scidocs secs 23 {'full': 0.2118, 'h100': 0.2134, 'h50': 0.2134, 'jitaf': 0.2135} {'full': 1.0, 'h100': 1.0, 'h50': 1.0, 'sa100|f0.1|s13': 1.0, 'afh|f0.1|s13': 1.0}
+10:21:08 trec-covid secs 24 {'full': 0.7978, 'h100': 0.788, 'h50': 0.788, 'jitaf': 0.799} {'full': 1.0, 'h100': 1.0, 'h50': 1.0, 'sa100|f0.1|s13': 1.0, 'afh|f0.1|s13': 1.0}
+10:23:34 quora secs 145 {'full': 0.9171, 'h100': 0.9163, 'h50': 0.9163, 'jitaf': 0.9126} {'full': 1.0, 'h100': 1.0, 'h50': 1.0, 'sa100|f0.1|s13': 1.0, 'afh|f0.1|s13': 1.0}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6473.44it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:26:26 webis-touche2020 secs 171 {'full': 0.2973, 'h100': 0.2888, 'h50': 0.2888, 'jitaf': 0.2789} 1.0
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7048.54it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:26:54 cqa-webmasters secs 25 {'full': 0.3868, 'h100': 0.3924, 'h50': 0.3924, 'jitaf': 0.3753} 1.0
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6525.06it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:27:22 cqa-android secs 28 {'full': 0.5044, 'h100': 0.5106, 'h50': 0.5106, 'jitaf': 0.4927} 1.0
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7050.98it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:28:04 cqa-wordpress secs 42 {'full': 0.3525, 'h100': 0.3455, 'h50': 0.3455, 'jitaf': 0.3294} 1.0
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6886.01it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:29:19 fiqa_fresh secs 75 {'full': 0.384, 'h100': 0.4053, 'h50': 0.4053, 'jitaf': 0.385} 1.0
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6702.16it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+10:29:50 nfcorpus_fresh secs 30 {'full': 0.3627, 'h100': 0.3573, 'h50': 0.3573, 'jitaf': 0.3541} 0.997

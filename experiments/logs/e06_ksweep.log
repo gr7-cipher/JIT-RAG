@@ -1,0 +1,33 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8172.63it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+16:25:13 quora 10 53 3.29
+16:25:14 quora 20 51 1.69
+16:25:15 quora 50 66 0.98
+16:25:17 quora 100 99 0.87
+16:25:19 quora 200 163 0.81
+16:25:24 quora 500 277 0.55
+16:25:32 quora 1000 544 0.53
+16:25:49 quora 2000 1086 0.55
+16:26:06 trec-covid 10 111 8.76
+16:26:09 trec-covid 20 189 8.51
+16:26:16 trec-covid 50 447 8.45
+16:26:29 trec-covid 100 863 8.44
+16:26:53 trec-covid 200 1655 8.07
+16:27:49 trec-covid 500 3809 7.38
+16:29:32 trec-covid 1000 7292 6.88
+16:34:00 trec-covid 2000 17517 8.88
+16:34:10 fiqa 10 149 10.41
+16:34:14 fiqa 20 218 10.04
+16:34:21 fiqa 50 490 9.54
+16:34:37 fiqa 100 1027 10.15
+16:35:06 fiqa 200 1943 9.54
+16:36:17 fiqa 500 4826 9.41
+16:38:30 fiqa 1000 8676 8.81
+16:42:43 fiqa 2000 16314 8.41

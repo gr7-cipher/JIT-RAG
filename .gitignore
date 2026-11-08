@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+.venv_a100/
+.pytest_cache/
+*.npy
+*.pkl
+experiments/data/
+data/
+results_a100/
+logs_a100/
+*.aux
+*.log.tmp

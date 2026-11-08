@@ -1,0 +1,14 @@
+03:25:09 fiqa docs 57638 queries 500
+03:25:15 first stage done 0.8828333811834455
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6024.79it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+03:33:29 embeddings done 401.51110196113586
+03:33:48 dense done {'ms_p50': 0.6286244606599212, 'ms_p95': 0.8596754283644259, 'recall10_vs_exact': 0.9938}
+03:34:14 fiqa DONE {'bm25': 0.2627, 'dense_exact': 0.3669, 'jit_k100': 0.3755, 'jit_k1000': 0.3769, 'rrf_bm25_dense': 0.3749}

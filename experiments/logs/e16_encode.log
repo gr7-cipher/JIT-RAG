@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8279.60it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+06:57:33 cqa-webmasters 17405 500
+06:59:02 cqa-webmasters 0 89
+07:00:41 cqa-webmasters done 188
+07:00:41 cqa-android 22998 500
+07:01:51 cqa-android 0 70
+07:04:11 cqa-android done 209
+07:04:11 cqa-wordpress 48605 500
+07:06:02 cqa-wordpress 0 111
+07:15:09 cqa-wordpress done 658
+07:15:11 webis-touche2020 382545 49
+07:16:40 webis-touche2020 0 89
+07:32:12 webis-touche2020 81920 1021
+07:46:37 webis-touche2020 163840 1885
+08:02:17 webis-touche2020 245760 2825
+08:16:29 webis-touche2020 327680 3677
+08:21:18 webis-touche2020 done 3967

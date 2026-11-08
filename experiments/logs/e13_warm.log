@@ -1,0 +1,7 @@
+20:44:43 scifact first10 89.1 last10 0.8 distinct 5032 sum 5032 share 0.9708662936523249
+20:44:44 nfcorpus first10 75.3 last10 0.4 distinct 3595 sum 3595 share 0.9895403248004404
+20:44:46 arguana first10 89.3 last10 2.7 distinct 8005 sum 8005 share 0.9228729536546
+20:44:51 fiqa first10 98.4 last10 20.5 distinct 22788 sum 22788 share 0.3953641694715292
+20:44:55 scidocs first10 98.9 last10 10.5 distinct 19242 sum 19242 share 0.7499707682114043
+20:45:10 trec-covid first10 99.2 last10 86.0 distinct 4704 sum 4704 share 0.027455466579506455
+20:45:25 quora first10 94.7 last10 86.8 distinct 46493 sum 46493 share 0.08890847932136361

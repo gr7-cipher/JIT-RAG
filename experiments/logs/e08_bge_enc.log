@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7394.81it/s]
+[1mBertModel LOAD REPORT[0m from: BAAI/bge-small-en-v1.5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+17:06:43 scifact 96.62188601493835
+17:07:50 nfcorpus 66.68453693389893
+17:10:06 arguana 136.65233778953552
+17:20:23 fiqa 616.7931189537048
+17:26:20 scidocs 355.91415309906006
+18:02:33 trec-covid 2172.5618109703064
+18:13:51 quora 676.0342152118683

@@ -1,440 +1,137 @@
-# JIT-RAG: Just-in-Time Embedding Architecture
+# Query-time embedding in retrieval-augmented generation
 
-A comprehensive Python implementation of the research paper **"JIT-RAG: A Just-in-Time Embedding Architecture for Fresh, Compliant, and Scalable Retrieval-Augmented Generation"**.
+Code, per-query results and logs for the paper "Query-Time Embedding in Retrieval-Augmented Generation: An Experimental and Queueing Analysis of Encoder Lag in Indexed Fusion Retrieval". The paper is under review, so its text is not in this repository.
 
-## Overview
+When writes exceed encoder capacity, documents reach the inverted index but wait for a vector, and dense search cannot find them. Two designs here deal with that by encoding candidates at query time and storing the vectors:
 
-JIT-RAG is a novel Retrieval-Augmented Generation (RAG) architecture that addresses critical challenges in dynamic environments by computing embeddings "just-in-time" rather than maintaining a static pre-computed vector index. This approach provides:
+- Lazy fusion is convex fusion of BM25 and an ANN index, plus query-time encoding of waiting documents among the BM25 top K.
+- JIT-AF+ANN (just-in-time adaptive fusion) also expands candidates through rounds of pseudo-relevance feedback. JIT-AF is the same design without an ANN index.
 
-- **Maximum Data Freshness**: Always queries the live corpus with near-zero information lag
-- **Simplified Compliance**: Easy data deletion without complex re-indexing or tombstoning
-- **Competitive Quality**: Retrieval performance comparable to Dense RAG
-- **Efficient Latency**: Fast query processing through a two-stage pipeline
+## When this helps and when it does not
 
-## Architecture
+Query-time encoding helps during encoder overload, when quality matters more than latency. With 10% of the corpus waiting, encoding about five candidates per query restored the quality of a complete index.
 
-JIT-RAG implements a three-stage pipeline:
+It does not help when the encoder keeps up, since nothing is waiting. It does not shrink the backlog on a shared accelerator, because query-time encodings replace background encodings almost one for one. It costs latency and throughput, and the query path needs encoder capacity. Encoding at ingest stays the default.
 
-1. **Stage 1: Candidate Generation** - Uses BM25 sparse retrieval to select top-K candidates from the live corpus
-2. **Stage 2: JIT Semantic Reranking** - Computes dense embeddings on-the-fly for query and candidates
-3. **Stage 3: Result Finalization** - Re-ranks candidates by cosine similarity and returns top-N results
+The feedback loop in JIT-AF+ANN added a little Recall@100 and no nDCG@10 over fusion alone, and it saturated first under live load.
 
-This procedural hybrid approach eliminates the need for a persistent dense vector index while maintaining high retrieval quality.
+## Results
 
-## Installation
+All values come from one Apple M1 laptop with 8 GB of memory and bge-small-en-v1.5. Quality is macro nDCG@10 on held-out queries from seven BEIR collections.
 
-### Prerequisites
+| Waiting | Lazy fusion, K=50 | Encodings per query | JIT-AF+ANN | Encodings per query | Indexed fusion, signal-aware |
+|---|---|---|---|---|---|
+| 0% | 0.5879 | 0 | 0.5869 | 0 | 0.5879 |
+| 10% | 0.5876 | 4.9 | 0.5867 | 9.8 | 0.5692 |
+| 50% | 0.5838 | 24.4 | 0.5848 | 49.3 | 0.4912 |
 
-- Python 3.8 or higher
-- pip package manager
+Live test on FiQA with one shared accelerator, 100 writes and 5 queries per second, two runs each:
 
-### Setup
+| System | Median latency (ms) | p95 latency (ms) | Final backlog share |
+|---|---|---|---|
+| Indexed fusion, signal-aware | 91, 102 | 148, 185 | 0.160, 0.176 |
+| Lazy fusion, K=50 | 467, 419 | 806, 1,070 | 0.165, 0.164 |
+| JIT-AF+ANN | 903, 1,483 | 1,826, 7,416 | 0.169, 0.174 |
 
-1. Clone or download this repository
+A shared-capacity model predicted the backlog of the overloaded runs with a mean absolute error of 0.004. A model that treats query-time encoding as added capacity had an error of 0.065.
 
-2. Install dependencies:
+## Analytical model
+
+Section 4 of the paper models the backlog. Writes arrive at rate `u`, a background encoder stores documents at rate `mu`, and `Q` queries per second each encode up to `m` waiting candidates out of `K`. The corpus holds `N(t) = N0 + u t` documents, and `f(t) = B(t) / N(t)` is the share still waiting.
+
+- With query-side encoders separate from the background encoder, `f(t)` approaches `f_inf = (u - mu) / (u + Q K)`. The budget `m` binds if and only if `m < K f_inf`. It then binds for good from a switching time `t_b`, and `f(t)` approaches `(u - mu - Q m) / u` instead. Equations 7 to 11 give the closed forms, which match numerical integration.
+- On one shared accelerator, query-time and background encoding draw on the same capacity `kappa(Q) = (1 - Q t_q) / c`, so `f(t)` approaches `(u - kappa) / u` for any `K` and `m` (Equation 13). This is the model the live test supports.
+- A query path stays stable only while `Q (t_q + c min(m, K f)) < 1` (Equation 14).
+
+## Which corpora warm up
+
+Replaying each collection's queries once from an empty store, SciFact touched 97.1% of its documents in 300 queries and Quora touched 8.9% in 500. The number of candidate retrievals per document, `n K / N`, explains both: a uniform-retrieval baseline predicts 99.7% and 9.1%. Topic concentration shows as a shortfall below that baseline when retrievals per document are near one, for example 39.5% against 58.0% on FiQA. Write-back saves the most when documents are retrieved repeatedly (7.80 times fewer encodings on NFCorpus, 1.07 on Quora). A cold tail, which lets a design without ingest-time encoding save work, is largest for big corpora and concentrated queries. `experiments/e26_coverage.py` computes these figures.
+
+## Repository layout
+
+```
+src/jit_rag/    reference implementation of lazy fusion, JIT-AF and the write-back store
+tests/          unit tests, including at-most-once encoding and backlog invariance
+examples/       a minimal runnable example
+experiments/    numbered experiment scripts, results/ (per-query JSON) and logs/
+scripts/        downloads, run scripts and the table rebuild
+generated/      tables and figures rebuilt from stored results
+```
+
+The experiments use their own vectorised code paths and produced every number in the paper. `src/jit_rag` exists so the algorithms can be read and tested separately. Embeddings, BEIR data and pickled caches are not stored here.
+
+## Install
 
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-The main dependencies are:
-- `torch` - Deep learning framework
-- `sentence-transformers` - Pre-trained embedding models
-- `faiss-cpu` - Vector similarity search (for baseline comparisons)
-- `rank-bm25` - BM25 sparse retrieval
-- `numpy`, `matplotlib`, `tqdm` - Scientific computing and utilities
-
-## Quick Start
-
-### Basic Usage
-
-```python
-from models import JITRAG
-from utils import create_sample_corpus
-
-# Create a sample corpus
-corpus = create_sample_corpus(n_docs=1000)
-
-# Initialize JIT-RAG
-jit_rag = JITRAG(corpus, encoder_model_name='sentence-transformers/all-MiniLM-L6-v2')
-
-# Retrieve documents
-query = "artificial intelligence and machine learning"
-results = jit_rag.retrieve(query, K=200, N=10)
-
-# Display results
-for i, doc in enumerate(results, 1):
-    print(f"{i}. Score: {doc['score']:.4f}")
-    print(f"   Text: {doc['text'][:100]}...")
-```
-
-### Running Demonstrations
-
-The `main.py` script provides comprehensive demonstrations:
+Tested on macOS with Metal. A fresh clone passed the unit tests, rebuilt every table from stored results, and reproduced the stored SciFact results exactly with `e01_base.py`, `e08_compare.py encode bge` and `e17_lazy.py`. Run the unit tests with:
 
 ```bash
-# Run all demonstrations
-python main.py --demo all
-
-# Run specific demonstrations
-python main.py --demo basic          # Basic retrieval comparison
-python main.py --demo qlf            # QLF utility calculation
-python main.py --demo ablation       # Ablation study
-python main.py --demo staleness      # Data staleness simulation
-python main.py --demo governance     # Governance overhead analysis
-
-# Customize corpus size and query count
-python main.py --corpus-size 5000 --n-queries 100
+PYTHONPATH=src pytest -q tests
 ```
 
-## Data Format
+## Minimal usage
 
-### Corpus Format
-
-Documents should be provided as a list of dictionaries with the following structure:
-
-```python
-corpus = [
-    {
-        'id': 'doc_0',
-        'text': 'This is the document text content...',
-        'timestamp': datetime(2024, 1, 1, 12, 0, 0)  # Optional, for temporal analysis
-    },
-    {
-        'id': 'doc_1',
-        'text': 'Another document with relevant information...',
-        'timestamp': datetime(2024, 1, 2, 14, 30, 0)
-    },
-    # ... more documents
-]
-```
-
-### JSONL Format
-
-You can also load/save corpora in JSONL format:
-
-```python
-from utils import load_corpus_from_jsonl, save_corpus_to_jsonl
-
-# Load corpus
-corpus = load_corpus_from_jsonl('corpus.jsonl')
-
-# Save corpus
-save_corpus_to_jsonl(corpus, 'output_corpus.jsonl')
-```
-
-Example JSONL file:
-```json
-{"id": "doc_0", "text": "Document content here..."}
-{"id": "doc_1", "text": "Another document..."}
-```
-
-## Models
-
-### JITRAG
-
-The main JIT-RAG implementation with on-the-fly embedding computation.
-
-```python
-from models import JITRAG
-
-jit_rag = JITRAG(
-    corpus=corpus,
-    encoder_model_name='sentence-transformers/all-MiniLM-L6-v2'
-)
-
-results = jit_rag.retrieve(query, K=200, N=10)
-```
-
-**Parameters:**
-- `K`: Number of candidates to retrieve in Stage 1 (default: 200)
-- `N`: Number of final results to return (default: 10)
-
-### DenseRAG
-
-Conventional Dense RAG baseline with pre-computed FAISS index.
-
-```python
-from models import DenseRAG
-
-dense_rag = DenseRAG(
-    corpus=corpus,
-    encoder_model_name='sentence-transformers/all-MiniLM-L6-v2',
-    index_type='hnsw'  # or 'flat'
-)
-
-results = dense_rag.retrieve(query, N=10)
-```
-
-### BM25Baseline
-
-Pure sparse retrieval using BM25.
-
-```python
-from models import BM25Baseline
-
-bm25 = BM25Baseline(corpus=corpus)
-results = bm25.retrieve(query, N=10)
-```
-
-### BM25CrossEncoder
-
-High-quality baseline using BM25 + Cross-Encoder reranking.
-
-```python
-from models import BM25CrossEncoder
-
-bm25_cross = BM25CrossEncoder(
-    corpus=corpus,
-    cross_encoder_model='cross-encoder/ms-marco-MiniLM-L-6-v2'
-)
-
-results = bm25_cross.retrieve(query, K=1000, N=10)
-```
-
-## Evaluation Framework
-
-### QLF Utility Function
-
-The Quality-Latency-Freshness (QLF) utility function provides a holistic evaluation metric:
-
-```python
-from evaluation import calculate_qlf_utility, calculate_freshness
-from datetime import datetime
-
-# Calculate utility
-utility = calculate_qlf_utility(
-    Q=0.85,        # Quality (e.g., nDCG@10)
-    L=0.15,        # Latency in seconds
-    F=0.95,        # Freshness score
-    w_q=1.0,       # Quality weight
-    w_l=0.1,       # Latency weight (penalizes 100ms by 0.01)
-    w_f=0.5        # Freshness weight
-)
-
-# Calculate freshness from retrieved documents
-freshness = calculate_freshness(
-    documents=retrieved_docs,
-    current_time=datetime.now(),
-    alpha=0.01  # Decay constant (per hour)
-)
-```
-
-### Retrieval Metrics
-
-```python
-from utils import evaluate_retrieval
-
-metrics = evaluate_retrieval(
-    retrieved=results,
-    relevant={'doc_5', 'doc_12', 'doc_23'}  # Set of relevant doc IDs
-)
-
-print(f"nDCG@10: {metrics['ndcg@10']:.4f}")
-print(f"Recall@100: {metrics['recall@100']:.4f}")
-print(f"MRR@10: {metrics['mrr@10']:.4f}")
-```
-
-## Experimental Analysis
-
-### Ablation Study
-
-Analyze the contribution of each component:
-
-```python
-from evaluation import ablation_study, plot_ablation_results
-
-results = ablation_study(
-    corpus=corpus,
-    queries=queries,
-    K=200
-)
-
-plot_ablation_results(results, output_path='ablation_study.png')
-```
-
-Tests three configurations:
-1. **Full JIT-RAG**: BM25 + Dense Reranking
-2. **BM25-Only**: No dense reranking
-3. **Random + Dense Ranker**: Random candidates + dense reranking
-
-### Data Staleness Simulation
-
-Measure performance degradation due to information lag:
-
-```python
-from evaluation import data_staleness_simulation, plot_staleness_results
-
-models = {
-    'JIT-RAG': jit_rag,
-    'Dense RAG': dense_rag
-}
-
-results = data_staleness_simulation(
-    models=models,
-    corpus=temporal_corpus,
-    queries=queries,
-    reindex_intervals=[1, 6, 12, 24, 48, 72]  # hours
-)
-
-plot_staleness_results(results, intervals=[1, 6, 12, 24, 48, 72])
-```
-
-### Governance Overhead Analysis
-
-Quantify the cost of data deletion and compliance:
-
-```python
-from evaluation import governance_overhead_analysis, plot_governance_overhead
-
-results = governance_overhead_analysis(
-    corpus=corpus,
-    queries=queries,
-    deletion_percentages=[0, 1, 5, 10, 20, 30]
-)
-
-plot_governance_overhead(results)
-```
-
-Measures:
-- **Deletion time**: Time to remove documents
-- **Query latency overhead**: Impact of tombstoning on query performance
-
-## Key Parameters
-
-### Model Configuration
-
-- **Encoder Model**: `sentence-transformers/all-MiniLM-L6-v2` (384-dimensional embeddings)
-- **Candidate Size (K)**: 200 (optimal from ablation studies)
-- **Final Results (N)**: 10
-- **FAISS Index**: HNSW for Dense RAG
-
-### QLF Weights
-
-- **w_q** (Quality): 1.0
-- **w_l** (Latency): 0.1 (penalizes each 100ms by 0.01 utility points)
-- **w_f** (Freshness): 0.5
-
-### Freshness Decay
-
-- **α** (Alpha): 0.01 per hour
-
-## File Structure
-
-```
-jit-rag/
-├── models.py              # Core models: JITRAG, DenseRAG, BM25Baseline, BM25CrossEncoder
-├── evaluation.py          # QLF utility, experimental analysis functions
-├── utils.py               # Helper functions, metrics, data loading
-├── main.py                # Demonstration script
-├── requirements.txt       # Python dependencies
-└── README.md              # This file
-```
-
-## Implementation Details
-
-### Algorithm 1: JIT-RAG Query Processing
-
-The core retrieval algorithm follows the paper's Algorithm 1:
-
-1. **Sparse Retrieval**: BM25 retrieves top-K candidates from live corpus
-2. **Query Encoding**: Encode query to dense vector v_q
-3. **Candidate Encoding**: For each of K candidates, encode document to v_i
-4. **Similarity Computation**: Calculate cosine similarity between v_q and each v_i
-5. **Re-ranking**: Sort candidates by similarity score
-6. **Return**: Return top-N documents
-
-### Complexity Analysis
-
-**Query Time Complexity:**
-- JIT-RAG: O(K · L²_d) where K is candidate size and L_d is document length
-- Dense RAG: O(L²_q + log|D|) where L_q is query length and |D| is corpus size
-
-**Update/Deletion Complexity:**
-- JIT-RAG: O(1) or O(log|D|) - simple deletion from source and BM25 index
-- Dense RAG (Re-index): O(|D| · L²_d) - full corpus re-embedding
-- Dense RAG (Tombstone): O(1) - but introduces query latency overhead
-
-## Datasets
-
-The implementation supports various datasets:
-
-### Built-in Sample Data
-
-```python
-from utils import create_sample_corpus, generate_queries
-
-corpus = create_sample_corpus(n_docs=1000, seed=42)
-queries = generate_queries(corpus, n_queries=100, seed=42)
-```
-
-### Real Datasets
-
-The paper uses:
-- **MS MARCO Passage Ranking**: Large-scale passage retrieval
-- **Natural Questions (NQ)**: Question-answering dataset
-- **BEIR Benchmark**: 18 diverse retrieval datasets
-- **Simulated Streaming News**: Jozef Stefan Institute corpus (2014-2022)
-
-To use real datasets, install additional dependencies:
 ```bash
-pip install datasets ir-datasets
+PYTHONPATH=src python examples/minimal.py
 ```
 
-## Performance Expectations
+Output on our machine:
 
-Based on the paper's findings:
-
-### Retrieval Quality
-- **JIT-RAG**: nDCG@10 ≈ 0.85-0.90 (highly competitive with Dense RAG)
-- **Dense RAG**: nDCG@10 ≈ 0.87-0.92
-- **BM25**: nDCG@10 ≈ 0.70-0.75
-
-### Latency
-- **JIT-RAG**: 150-300ms (depends on K and document length)
-- **Dense RAG**: 10-50ms (fast ANN search)
-- **BM25 + Cross-Encoder**: 500-1000ms (expensive cross-encoder)
-
-### Freshness
-- **JIT-RAG**: Information lag ≈ 0 (always queries live data)
-- **Dense RAG**: Information lag = T_reindex / 2 (average)
-
-### Governance
-- **JIT-RAG**: O(1) deletion, zero query overhead
-- **Dense RAG**: O(|D| · L²_d) re-index or constant tombstone overhead
-
-## Citation
-
-If you use this implementation, please cite the original paper:
-
-```bibtex
-@article{jitrag2024,
-  title={JIT-RAG: A Just-in-Time Embedding Architecture for Fresh, Compliant, and Scalable Retrieval-Augmented Generation},
-  author={Almobydeen, Shahed and Irjoob, Ahmad and Bentahar, Jamal and Rjoub, Gaith and Kassaymeh, Sofian},
-  year={2024}
-}
+```
+encoded at query time: 3
+1 Mortgage payments rise when lending rates go up.
+0 The central bank raised interest rates by a quarter point.
+3 A savings account pays interest every month.
+after a repeat query, total encodings: 3
 ```
 
-## License
+## Data
 
-This implementation is provided for research and educational purposes.
+BEIR collections are public. This downloads them to `experiments/data/`:
 
-## Contributing
+```bash
+bash scripts/download_data.sh scifact nfcorpus arguana fiqa scidocs trec-covid quora
+bash scripts/download_data.sh webis-touche2020 cqa-webmasters cqa-android cqa-wordpress
+```
 
-Contributions are welcome! Areas for improvement:
-- Support for additional embedding models
-- Integration with real-world datasets
-- Optimization of BM25 indexing
-- Distributed computing support
-- Additional evaluation metrics
+The second line fetches the external sets. The three `cqa-*` forums come from the single BEIR CQADupStack archive, which the script downloads once. The external FiQA and NFCorpus query sets are train-split queries of the collections above that earlier experiments did not use, so they need no extra download.
 
-## Contact
+## Reproducing the paper
 
-For questions or issues, please open an issue on the repository.
+Rebuild statistics, tables and figures from stored results, with no data or GPU:
 
-## Acknowledgments
+```bash
+python scripts/rebuild_tables.py
+```
 
-This implementation is based on the research paper "JIT-RAG: A Just-in-Time Embedding Architecture for Fresh, Compliant, and Scalable Retrieval-Augmented Generation" by Almobydeen et al.
+To run the experiments, first produce embeddings and candidates with `e01_base.py <collection>` and `e08_compare.py`, then use `scripts/run_paper_v3.sh`. Run `e18_live.py` and `e22_idle.py` with nothing else on the machine. `experiments/README_scripts.md` describes the earlier scripts. Older scripts keep the labels from when they were written.
 
-Special thanks to the authors for their innovative approach to addressing data freshness and compliance challenges in RAG systems.
+| In the paper | Script | Stored result |
+|---|---|---|
+| Table 2, collections | `e01_base.py`, `e21_tables.py` | `results/<collection>/meta.json`, `results/e20_stats.json` |
+| Tables 3 and 4, Figure 2, backlog and tests | `e17_lazy.py`, `e20_stats.py` | `results/e17/`, `results/e20_stats.json`, `results/e17_margin.json` |
+| Table 5, ablation | `e17_lazy.py`, `e20_stats.py` | same |
+| Table 6, complete index | `e17_lazy.py`, `e20_stats.py` | same |
+| Tables 7 and 8, budget and write-back | `e17_lazy.py`, `e20_stats.py` | same |
+| Section 6.4, corpus coverage against a uniform baseline | `e26_coverage.py` | `results/e26_coverage.json` |
+| Table 9, Figure 3, live load | `e18_live.py`, `e25_shared_check.py`, `e23_pareto.py` | `results/e18_live.json`, `results/e25_shared.json`, `results/e23_pareto.json` |
+| Table 10, latency without contention | `e22_idle.py`, `e14_afh.py latency`, `e13_af.py latency`, `e10_final.py` | `results/e22_idle.json`, `results/e14_latency.json`, `results/e13_latency.json`, `results/e10_latency_hyb.json`, `results/e10_latency.json` |
+| Table 11, overload replay | `e19_overload.py` | `results/e19_overload.json` |
+| Table 12, cost | `e21_cost.py` | `results/e21_cost.json` |
+| Figure 4, freshness | `e05_stream_erasure_filter.py stream` | `results/stream.json` |
+| Earlier designs and supporting measurements | `e01` to `e16` | `results/numbers.json` and others |
+| Section 6.9, generation check | `e24_generation.py` | `results/e24_generation.json` |
+
+Quality scripts read stored vectors and count encodings, so they do not need a GPU once embeddings exist.
+
+## Limitations
+
+These results cover retrieval on one laptop. The only generation test is a small check with a local 1.5B model and proxy scores, which found no measurable difference in answers. MS MARCO and Natural Questions were not run: `scripts/run_a100.sh` is included and has not been run. The largest corpus has 523,000 documents. Backlogs in the quality experiments are uniform masks on collections with no timestamps in the BEIR files, and real backlogs are recent and clustered. The live test uses one collection, Python threads, and in-memory text and vectors, with memory pressure on the machine. JIT-AF+ANN received more tuning than its rivals. Prices in the cost model are assumptions.
+
+## Citation and licence
+
+See `CITATION.cff`. The paper has no DOI yet. Code is under the Apache License 2.0 in `LICENSE`. BEIR collections have their own licences.

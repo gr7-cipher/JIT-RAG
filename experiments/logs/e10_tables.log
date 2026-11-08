@@ -1,0 +1,6 @@
+0.0 {'BM25': 0.481, 'JIT-CC': 0.572, 'RRF': 0.56, 'Hybrid CC': 0.571} {'BM25': 1.7, 'JIT-CC': 17.5, 'RRF': 21.7, 'Hybrid CC': 20.1} {'BM25': 0.126, 'JIT-CC': 0.874}
+0.1 {'BM25': 0.481, 'JIT-CC': 0.572, 'RRF': 0.543, 'Hybrid CC': 0.554} {'BM25': 1.7, 'JIT-CC': 178.8, 'RRF': 21.7, 'Hybrid CC': 20.1} {'BM25': 0.156, 'JIT-CC': 0.212, 'Hybrid CC': 0.632}
+0.5 {'BM25': 0.481, 'JIT-CC': 0.572, 'RRF': 0.502, 'Hybrid CC': 0.487} {'BM25': 1.7, 'JIT-CC': 753.8, 'RRF': 21.7, 'Hybrid CC': 20.1} {'BM25': 0.338, 'JIT-CC': 0.19, 'RRF': 0.472}
+jitcc-jit {'scifa': '+0.007', 'nfcor': '+0.006*', 'argua': '-0.003', 'fiqa': '+0.007', 'scido': '+0.004', 'trec-': '-0.006', 'quora': '+0.013*'}
+mean L {'jitcc_f0.0': 17, 'jitcc_f0.01': 42, 'jitcc_f0.1': 197, 'jitcc_f0.5': 860, 'jitcc_f1.0': 1593, 'jitcc_f0.0_ce20': 218} quora {'jitcc_f0.0': 18, 'jitcc_f0.01': 31, 'jitcc_f0.1': 70, 'jitcc_f0.5': 115, 'jitcc_f1.0': 166, 'jitcc_f0.0_ce20': 54}
+e08 macros bge {'dense': 0.5605, 'rrf': 0.5605, 'jit_k50': 0.5588, 'jit_k100': 0.5673, 'jit_k200': 0.5685, 'bm25': 0.4807, 'jitcc_k50': 0.5608, 'hybcc_k50': 0.5747, 'jitcc_k100': 0.5715, 'hybcc_k100': 0.5707, 'jitcc_k200': 0.5708, 'hybcc_k200': 0.5713}

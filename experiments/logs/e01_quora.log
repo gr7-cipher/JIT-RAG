@@ -1,0 +1,14 @@
+03:34:26 quora docs 522931 queries 500
+03:34:44 first stage done 6.067812442779541
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 5232.47it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+03:41:19 embeddings done 376.9760539531708
+03:44:49 dense done {'ms_p50': 1.3437708839774132, 'ms_p95': 9.24010822782293, 'recall10_vs_exact': 0.9947999999999999}
+03:45:16 quora DONE {'bm25': 0.8418, 'dense_exact': 0.8808, 'jit_k100': 0.8864, 'jit_k1000': 0.8807, 'rrf_bm25_dense': 0.888}

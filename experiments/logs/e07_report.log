@@ -1,0 +1,30 @@
+bm25               nDCG 0.4807  R@100 0.5949
+dense_exact        nDCG 0.4896  R@100 0.6445
+rrf_bm25_dense     nDCG 0.5375  R@100 0.6546
+jit_k50            nDCG 0.5244  R@100 0.5531
+jit_k100           nDCG 0.5274  R@100 0.5953
+rrf_k20            nDCG 0.5202  R@100 0.5054
+rrf_k50            nDCG 0.5277  R@100 0.5531
+rrf_k100           nDCG 0.5321  R@100 0.5954
+rrf_k200           nDCG 0.5363  R@100 0.6153
+multi_k20          nDCG 0.5048  R@100 0.5313
+multi_k50          nDCG 0.5157  R@100 0.5843
+multi_k100         nDCG 0.5195  R@100 0.6216
+multi_k200         nDCG 0.5230  R@100 0.6307
+cc K 20 {0.1: 0.4927, 0.2: 0.5013, 0.3: 0.511, 0.4: 0.5168, 0.5: 0.5236, 0.6: 0.5296, 0.7: 0.5334, 0.8: 0.5333, 0.9: 0.5278}
+cc K 50 {0.1: 0.4933, 0.2: 0.5026, 0.3: 0.5143, 0.4: 0.5209, 0.5: 0.5296, 0.6: 0.5362, 0.7: 0.5424, 0.8: 0.5431, 0.9: 0.5374}
+cc K 100 {0.1: 0.4928, 0.2: 0.5035, 0.3: 0.5145, 0.4: 0.5231, 0.5: 0.5327, 0.6: 0.5412, 0.7: 0.5486, 0.8: 0.5488, 0.9: 0.5408}
+cc K 200 {0.1: 0.4934, 0.2: 0.5043, 0.3: 0.5153, 0.4: 0.5241, 0.5: 0.5344, 0.6: 0.5418, 0.7: 0.5499, 0.8: 0.5499, 0.9: 0.5423}
+LODO cc K 20 0.5315 {'scifact': 0.8, 'nfcorpus': 0.8, 'arguana': 0.8, 'fiqa': 0.7, 'scidocs': 0.7, 'trec-covid': 0.7, 'quora': 0.7}
+LODO cc K 50 0.5419 {'scifact': 0.8, 'nfcorpus': 0.8, 'arguana': 0.8, 'fiqa': 0.7, 'scidocs': 0.8, 'trec-covid': 0.8, 'quora': 0.8}
+LODO cc K 100 0.5458 {'scifact': 0.8, 'nfcorpus': 0.8, 'arguana': 0.7, 'fiqa': 0.7, 'scidocs': 0.7, 'trec-covid': 0.8, 'quora': 0.7}
+LODO cc K 200 0.5468 {'scifact': 0.8, 'nfcorpus': 0.8, 'arguana': 0.7, 'fiqa': 0.7, 'scidocs': 0.7, 'trec-covid': 0.8, 'quora': 0.7}
+
+Paired against RRF(BM25+dense), per collection; Holm across collections
+jit_k100 macro 0.5274 {'scifac': (-0.051, '*'), 'nfcorp': (-0.018, '*'), 'arguan': (-0.02, '*'), 'fiqa': (0.001, ''), 'scidoc': (0.005, ''), 'trec-c': (0.015, ''), 'quora': (-0.002, '')}
+fuse_rrf_k100 macro 0.5321 {'scifac': (-0.003, ''), 'nfcorp': (-0.008, ''), 'arguan': (-0.005, ''), 'fiqa': (-0.03, '*'), 'scidoc': (-0.009, '*'), 'trec-c': (0.021, ''), 'quora': (-0.004, '*')}
+lodo_cc_k100 macro 0.5458 {'scifac': (0.009, ''), 'nfcorp': (-0.003, ''), 'arguan': (-0.001, ''), 'fiqa': (0.006, ''), 'scidoc': (0.001, ''), 'trec-c': (0.031, ''), 'quora': (0.016, '*')}
+lodo_cc_k200 macro 0.5468 {'scifac': (0.01, ''), 'nfcorp': (-0.002, ''), 'arguan': (-0.002, ''), 'fiqa': (0.014, '*'), 'scidoc': (0.003, ''), 'trec-c': (0.025, ''), 'quora': (0.017, '*')}
+multi_k100 macro 0.5195 {'scifac': (-0.012, ''), 'nfcorp': (0.006, ''), 'arguan': (-0.025, '*'), 'fiqa': (-0.064, '*'), 'scidoc': (-0.016, '*'), 'trec-c': (0.019, ''), 'quora': (-0.035, '*')}
+
+Encoded per query, multi: {'scifac': 135.59666666666666, 'nfcorp': 110.93498452012383, 'arguan': 136.512, 'fiqa': 134.08, 'scidoc': 134.034, 'trec-c': 137.98, 'quora': 128.154}
